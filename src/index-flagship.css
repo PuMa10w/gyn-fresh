@@ -4,7 +4,7 @@
 @import './motion.css';
 @import './flagship-disease-card.css';
 @import './flagship-modal.css';
-@import './flagship-navbar.css';
+@import './spacing.css';
 
 /* Override legacy styles with new premium ones */
 * {

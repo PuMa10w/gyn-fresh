@@ -2422,4 +2422,33 @@ html[data-theme='dark'] .symptom-checker,
 html[data-theme='dark'] .pubmed-feed,
 html[data-theme='dark'] .version-checker.glass {
   background-color: #3b2b2f !important;
+
+/* Flagship spacing utilities */
+/* Base mobile spacing (iPhone 15/15 Pro) */
+.clinical-tool-header,
+.clinical-tool-header-row,
+.catalog-header,
+.modal-header {
+  padding: var(--spacing-md-390);
+}
+
+@media (min-width: 393px) {
+  .clinical-tool-header,
+  .clinical-tool-header-row,
+  .catalog-header,
+  .modal-header {
+    padding: var(--spacing-md-393);
+  }
+}
+
+@media (min-width: 430px) {
+  .clinical-tool-header,
+  .clinical-tool-header-row,
+  .catalog-header,
+  .modal-header {
+    padding: var(--spacing-md-430);
+  }
+}
+
+/* End of spacing utilities */
 }

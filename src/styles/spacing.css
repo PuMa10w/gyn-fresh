@@ -1,0 +1,48 @@
+/* ------------------------------------------------------------
+ * Spacing system for iPhone screens (mobile‑first)
+ * ------------------------------------------------------------
+ * Breakpoints:
+ *   --spacing-base‑390   – iPhone 15 / 15 Pro (390 px)
+ *   --spacing-base‑393   – iPhone 15 Pro Max (393 px)
+ *   --spacing-base‑430   – iPhone 16 / 16 Pro (430 px)
+ *
+ * Usage example:
+ *   padding: var(--spacing-base-390) var(--spacing-base-393);
+ * ------------------------------------------------------------ */
+
+:root {
+  /* base unit = 4 px */
+  --spacing-unit: 4px;
+
+  /* iPhone 15 / 15 Pro */
+  --spacing-base-390: calc(var(--spacing-unit) * 2);   /* 8 px */
+  --spacing-sm-390:   calc(var(--spacing-unit) * 3);   /* 12 px */
+  --spacing-md-390:   calc(var(--spacing-unit) * 4);   /* 16 px */
+  --spacing-lg-390:   calc(var(--spacing-unit) * 6);   /* 24 px */
+  --spacing-xl-390:   calc(var(--spacing-unit) * 8);   /* 32 px */
+
+  /* iPhone 15 Pro Max */
+  --spacing-base-393: calc(var(--spacing-unit) * 2.5); /* 10 px */
+  --spacing-sm-393:   calc(var(--spacing-unit) * 3.5); /* 14 px */
+  --spacing-md-393:   calc(var(--spacing-unit) * 4.5); /* 18 px */
+  --spacing-lg-393:   calc(var(--spacing-unit) * 6.5); /* 26 px */
+  --spacing-xl-393:   calc(var(--spacing-unit) * 8.5); /* 34 px */
+
+  /* iPhone 16 / 16 Pro */
+  --spacing-base-430: calc(var(--spacing-unit) * 3);   /* 12 px */
+  --spacing-sm-430:   calc(var(--spacing-unit) * 4);   /* 16 px */
+  --spacing-md-430:   calc(var(--spacing-unit) * 5);   /* 20 px */
+  --spacing-lg-430:   calc(var(--spacing-unit) * 7);   /* 28 px */
+  --spacing-xl-430:   calc(var(--spacing-unit) * 9);   /* 36 px */
+}
+
+/* Fallback for larger screens – use base spacing */
+@media (min-width: 768px) {
+  :root {
+    --spacing-base: var(--spacing-base-430);
+    --spacing-sm:   var(--spacing-sm-430);
+    --spacing-md:   var(--spacing-md-430);
+    --spacing-lg:   var(--spacing-lg-430);
+    --spacing-xl:   var(--spacing-xl-430);
+  }
+}
