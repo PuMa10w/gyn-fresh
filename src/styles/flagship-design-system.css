@@ -1,0 +1,89 @@
+/* GYN Clinical Design System v3.0 - Flagship Premium 2026 */
+/* Inspired by Linear, Stripe, Apple — но с медицинской экспертизой */
+
+/* ==================== BRAND PALETTE ==================== */
+/* Signature: Deep Purpureal (#6366F1 violet) + Amber Gold accent */
+/* НЕ шаблонный синий, НЕ банальная медицинская голубая */
+
+:root {
+  /* Brand Signature */
+  --color-brand-primary: #6366F1; /* Indigo 500 */
+  --color-brand-secondary: #8B5CF6; /* Violet 500 */
+  --color-accent-gold: #F59E0B; /* Amber 500 - premium accent */
+  --color-accent-amber: #FBBF24; /* Amber 400 - highlight */
+
+  /* Surface Colors */
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FAFAFA;
+  --color-surface-depressed: #F5F5F5;
+  --color-surface-accent: #F8FAFC;
+
+  /* Text Colors */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #334155;
+  --color-text-tertiary: #64748B;
+  --color-text-quaternary: #94A3B8;
+
+  /* State Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Border Colors */
+  --color-border-primary: #E2E8F0;
+  --color-border-secondary: #CBD5E1;
+
+  /* Shadows - Apple/Linear inspired */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 15px rgba(15, 23, 42, 0.12), 0 4px 6px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 20px 25px rgba(15, 23, 42, 0.16), 0 8px 10px rgba(15, 23, 42, 0.12);
+  --shadow-2xl: 0 25px 50px rgba(15, 23, 42, 0.25);
+  --shadow-brand: 0 0 0 2px rgba(99, 102, 241, 0.3), 0 0 0 4px rgba(99, 102, 241, 0.15);
+
+  /* Radius - Apple rounded corners */
+  --radius-full: 9999px;
+  --radius-2xl: 1.5rem;
+  --radius-xl: 1rem;
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-xs: 0.125rem;
+
+  /* Z-index */
+  --z-index-modal-backdrop: 998;
+  --z-index-modal: 999;
+  --z-index-toast: 1000;
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+}
+
+/* Dark Theme - специально спроектированная */
+[data-theme="dark"] {
+  --color-surface: #0F172A;
+  --color-surface-elevated: #1E293B;
+  --color-surface-depressed: #111827;
+  --color-surface-accent: #030712;
+
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #E2E8F0;
+  --color-text-tertiary: #94A3B8;
+  --color-text-quaternary: #64748B;
+
+  --color-border-primary: #334155;
+  --color-border-secondary: #1E293B;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.45), 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.55), 0 8px 10px rgba(0, 0, 0, 0.4);
+}

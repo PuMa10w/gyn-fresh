@@ -1,0 +1,89 @@
+{
+  "name": "GYN — премиальный клинический PWA",
+  "short_name": "GYN",
+  "description": "Премиальный клинический справочник по гинекологии и акушерству: нозологии, диагностика, лечение, фармакология и клинические шкалы.",
+  "lang": "ru-RU",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#EAD0BC",
+  "background_color": "#FFF1E8",
+  "categories": [
+    "medical",
+    "health",
+    "education"
+  ],
+  "iarc_rating_id": "Mature",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Гинекология",
+      "short_name": "Гинекология",
+      "description": "Открыть каталог гинекологических нозологий",
+      "url": "./?tab=gynecology",
+      "icons": [
+        {
+          "src": "logo192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Акушерство",
+      "short_name": "Акушерство",
+      "description": "Открыть каталог акушерских состояний",
+      "url": "./?tab=obstetrics",
+      "icons": [
+        {
+          "src": "logo192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Избранное",
+      "short_name": "Избранное",
+      "description": "Открыть сохранённые клинические карточки",
+      "url": "./?tab=favorites",
+      "icons": [
+        {
+          "src": "logo192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "apple_mobile_web_app_capable": "yes",
+  "apple_mobile_web_app_status_bar_style": "black-translucent"
+}

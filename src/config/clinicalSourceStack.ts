@@ -1,0 +1,58 @@
+export const clinicalSourceStack = [
+  {
+    id: 'eshre',
+    label: 'ESHRE',
+    scope: 'эндометриоз, репродукция, привычная потеря беременности',
+    url: 'https://www.eshre.eu/Guidelines-and-Legal/Guidelines/Endometriosis-guideline?ContensisTextOnly=true',
+    accessedAt: '2026-05-31',
+  },
+  {
+    id: 'acog',
+    label: 'ACOG',
+    scope: 'акушерство, гинекология, маршрутизация и triage',
+    url: 'https://www.acog.org/clinical',
+    accessedAt: '2026-05-31',
+  },
+  {
+    id: 'who',
+    label: 'WHO',
+    scope: 'сексуальное и репродуктивное здоровье, материнская помощь',
+    url: 'https://www.who.int/health-topics/sexual-and-reproductive-health-and-rights',
+    accessedAt: '2026-05-31',
+  },
+  {
+    id: 'cdc',
+    label: 'CDC STI',
+    scope: 'ИППП, партнёр-менеджмент, антибактериальные схемы',
+    url: 'https://www.cdc.gov/std/treatment-guidelines/default.htm',
+    accessedAt: '2026-05-31',
+  },
+  {
+    id: 'nice',
+    label: 'NICE NG126',
+    scope: 'боль, беременность, miscarriage/ectopic pathways и маршрутизация',
+    url: 'https://www.nice.org.uk/guidance/ng126',
+    accessedAt: '2026-05-31',
+  },
+  {
+    id: 'rcog',
+    label: 'RCOG Green-top',
+    scope: 'акушерские риски, Green-top маршруты и критерии эскалации',
+    url: 'https://www.rcog.org.uk/guidance/browse-all-guidance/green-top-guidelines/',
+    accessedAt: '2026-05-31',
+  },
+  {
+    id: 'pcos',
+    label: 'International PCOS Guideline',
+    scope: 'СПКЯ, метаболический и репродуктивный риск',
+    url: 'https://www.monash.edu/medicine/mchri/pcos/guideline',
+    accessedAt: '2026-05-31',
+  },
+  {
+    id: 'minzdrav',
+    label: 'Минздрав РФ',
+    scope: 'локальная сверка клинических рекомендаций и терминологии',
+    url: 'https://cr.minzdrav.gov.ru/',
+    accessedAt: '2026-05-31',
+  },
+] as const;

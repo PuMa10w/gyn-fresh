@@ -1,0 +1,191 @@
+:root,
+[data-theme='light'] {
+  --brand-bg: #f8f4ea;
+  --brand-bg-soft: #efe8dc;
+  --brand-surface: #fffdf7;
+  --brand-surface-2: #f6f0e5;
+  --brand-text: #23312d;
+  --brand-text-2: #40514b;
+  --brand-muted: #64736d;
+  --brand-primary: #5f7f72;
+  --brand-primary-strong: #3d6658;
+  --brand-accent: #b08a4a;
+  --brand-danger: #8e3f3f;
+  --brand-border: rgba(35, 49, 45, 0.15);
+  --brand-border-strong: rgba(35, 49, 45, 0.25);
+  --brand-shadow: 0 18px 44px rgba(35, 49, 45, 0.12);
+  --brand-overlay: rgba(15, 23, 21, 0.42);
+  --radius-pill: 999px;
+  --radius-card: 22px;
+  --radius-panel: 28px;
+  --shadow-card: var(--brand-shadow);
+  --motion-fast: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  --mobile-bottom-bar-height: 56px;
+  --mobile-readable-gap: 22px;
+}
+
+[data-theme='dark'] {
+  --brand-bg: #101615;
+  --brand-bg-soft: #141c1a;
+  --brand-surface: #17201e;
+  --brand-surface-2: #1d2926;
+  --brand-text: #f4efe5;
+  --brand-text-2: #d6d1c6;
+  --brand-muted: #aebaae;
+  --brand-primary: #8fb6a5;
+  --brand-primary-strong: #b9d5c8;
+  --brand-accent: #d2b16a;
+  --brand-danger: #f0a3a3;
+  --brand-border: rgba(244, 239, 229, 0.14);
+  --brand-border-strong: rgba(244, 239, 229, 0.25);
+  --brand-shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
+  --brand-overlay: rgba(4, 8, 7, 0.72);
+  --shadow-card: var(--brand-shadow);
+}
+
+* {
+  -webkit-text-size-adjust: 100%;
+}
+
+:root,
+[data-theme] {
+  --color-bg: var(--brand-bg);
+  --color-bg-soft: var(--brand-bg-soft);
+  --color-surface: var(--brand-surface);
+  --color-surface-strong: var(--brand-surface-2);
+  --color-surface-raised: var(--brand-surface);
+  --color-text: var(--brand-text);
+  --color-muted: var(--brand-muted);
+  --color-muted-strong: var(--brand-text-2);
+  --color-rose: var(--brand-primary);
+  --color-rose-soft: var(--brand-primary-strong);
+  --color-coral: var(--brand-accent);
+  --color-gold: var(--brand-accent);
+  --color-alert: var(--brand-danger);
+  --color-border: var(--brand-border);
+  --color-border-strong: var(--brand-border-strong);
+  --accent-rose: var(--brand-primary);
+  --accent-rose-strong: var(--brand-primary-strong);
+  --accent-champagne: var(--brand-accent);
+  --accent-ink: var(--brand-text);
+  --accent-soft: color-mix(in srgb, var(--brand-primary) 18%, transparent);
+  --accent-copper: var(--brand-accent);
+  --accent-bronze: var(--brand-accent);
+  --bg-base: var(--brand-bg);
+  --bg-base-strong: var(--brand-bg-soft);
+  --bg-elevated: color-mix(in srgb, var(--brand-surface) 92%, transparent);
+  --bg-panel: color-mix(in srgb, var(--brand-surface) 96%, transparent);
+  --bg-panel-solid: var(--brand-surface);
+  --bg-muted: var(--brand-surface-2);
+  --text-primary: var(--brand-text);
+  --text-secondary: var(--brand-text-2);
+  --text-muted: var(--brand-muted);
+  --border-soft: var(--brand-border);
+  --border-strong: var(--brand-border-strong);
+  --gradient-accent: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+  --gradient-premium: var(--gradient-accent);
+  --gradient-turquoise-emerald: var(--gradient-accent);
+  --overlay-backdrop: var(--brand-overlay);
+  --v1-surface: var(--brand-surface);
+  --v1-surface-strong: var(--brand-surface-2);
+  --v1-text: var(--brand-text);
+  --v1-text-muted: var(--brand-muted);
+  --v1-border: var(--brand-border);
+  --v1-accent: var(--brand-primary);
+  --v1-accent-strong: var(--brand-primary-strong);
+  --v1-shadow: var(--brand-shadow);
+}
+
+body,
+.App {
+  background: linear-gradient(145deg, var(--brand-bg), var(--brand-bg-soft));
+  color: var(--brand-text);
+}
+
+:is(.navbar,.mobile-bottom-bar,.catalog-header,.catalog-controls,.premium-command-hero,.premium-card,.home-destination-card,.premium-recent-panel,.analytics-dashboard,.version-checker,.content-card,.content-card-wide,.structured-item,.quick-card,.guideline-card,.disease-card,.clinical-template-assistant,.anatomy-atlas-shell,.symptom-checker,.pubmed-feed,.medication-card,.regimen-card,.questionnaire-modal,.q-card,.q-result,.premium-error-container,.premium-recovery-card,.clinical-panel,.tool-panel,.clinical-empty-state,.clinical-error-state) {
+  background: linear-gradient(145deg, var(--brand-surface), var(--brand-surface-2));
+  border-color: var(--brand-border);
+  color: var(--brand-text);
+  box-shadow: var(--brand-shadow);
+}
+
+:is(.catalog-title,.premium-command-copy h2,.home-destination-title,.disease-card-title,.card-title,.modal-title,.content-card h3,.structured-item-title,.clinical-template-header h3,.version-checker h3) {
+  color: var(--brand-text);
+}
+
+:is(.catalog-description,.disease-card-description,.card-desc,.disease-card-meta,.category-chip-count,.version-kicker,.clinical-tool-kicker,.structured-item-note,.site-footer,.premium-command-copy p) {
+  color: var(--brand-text-2);
+}
+
+:is(.premium-button--primary,.q-btn-primary,.workbench-command-submit,.empty-state-action,.clinical-template-copy) {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+  border-color: color-mix(in srgb, var(--brand-primary) 60%, var(--brand-accent));
+  color: #fffdf7;
+}
+
+[data-theme='dark'] :is(.premium-button--primary,.q-btn-primary,.workbench-command-submit,.empty-state-action,.clinical-template-copy) {
+  color: #101615;
+}
+
+:is(.nav-tab,.category-chip,.catalog-sort-chip,.modal-tabs button,.modal-tab,.tab-btn,.pharma-tab,.search-suggestion-chip,.clinical-template-button,.mobile-bottom-item) {
+  background: color-mix(in srgb, var(--brand-surface) 84%, transparent);
+  border-color: var(--brand-border);
+  color: var(--brand-text);
+}
+
+:is(.nav-tab.active,.category-chip.active,.category-chip[aria-pressed='true'],.catalog-sort-chip.is-active,.modal-tabs button[aria-selected='true'],.modal-tab.active,.tab-btn.active,.pharma-tab.active,.clinical-template-button.is-active,.mobile-bottom-item.is-active,.mobile-bottom-item.active,.mobile-bottom-item[aria-current='page']) {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-primary) 22%, var(--brand-surface)), color-mix(in srgb, var(--brand-accent) 24%, var(--brand-surface)));
+  border-color: color-mix(in srgb, var(--brand-primary) 46%, var(--brand-accent));
+  color: var(--brand-text);
+}
+
+:is(.search-input,.catalog-search-input,.command-search-input,.workbench-command-input,.pharma-search-input,input[type='search']) {
+  background: color-mix(in srgb, var(--brand-surface) 92%, white 8%);
+  border-color: var(--brand-border-strong);
+  color: var(--brand-text);
+}
+
+[data-theme='dark'] :is(.search-input,.catalog-search-input,.command-search-input,.workbench-command-input,.pharma-search-input,input[type='search']) {
+  background: color-mix(in srgb, var(--brand-surface-2) 92%, black 8%);
+}
+
+.modal-overlay {
+  background: var(--brand-overlay);
+}
+
+:is(.modal-content.mobile-sheet,.pharmacology-modal.mobile-sheet,.questionnaire-modal.mobile-sheet) {
+  background: linear-gradient(160deg, var(--brand-surface), var(--brand-surface-2));
+  border-color: var(--brand-border-strong);
+  color: var(--brand-text);
+}
+
+:is(.modal-header,.modal-tabs,.modal-quick-strip,.pharma-tabs,.q-header,.q-nav) {
+  background: color-mix(in srgb, var(--brand-surface) 90%, transparent);
+  border-color: var(--brand-border);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+:is(.modal-close,.modal-back,.navbar-icon-button,.favorite-button) {
+  background: color-mix(in srgb, var(--brand-surface) 88%, transparent);
+  border-color: var(--brand-border);
+  color: var(--brand-text);
+}
+
+:is(.quick-card-alert,.clinical-panel--danger,.tool-panel--danger,.risk-flag--danger) {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--brand-danger) 14%, var(--brand-surface)), var(--brand-surface));
+  border-color: color-mix(in srgb, var(--brand-danger) 42%, var(--brand-border));
+}
+
+:is(.source-badge,.clinical-badge,.risk-flag,.inline-guideline-badge) {
+  background: color-mix(in srgb, var(--brand-primary) 14%, var(--brand-surface));
+  border-color: var(--brand-border);
+  color: var(--brand-primary-strong);
+}
+
+.mobile-bottom-active-line,
+.mobile-bottom-item.active::after,
+.mobile-bottom-item[aria-current='page']::after,
+.q-progress-fill {
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+}

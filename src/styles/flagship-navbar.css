@@ -1,0 +1,101 @@
+/* Navbar - Flagship Premium 2026 */
+/* iPhone Safe Areas, Dynamic Island Ready */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(env(safe-area-inset-top, 0px) + 0.75rem) 1.25rem calc(env(safe-area-inset-bottom, 0px) + 0.75rem);
+  min-height: 56px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 0.5px solid var(--color-border-primary);
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.72);
+}
+
+/* Dynamic Island Spacer */
+.navbar__spacer {
+  width: 0;
+  height: env(safe-area-inset-top, 0px);
+}
+
+/* Brand Identity */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar__logo {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%);
+}
+
+.navbar__title {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+/* Navigation Actions */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar__button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-ease-out);
+  position: relative;
+}
+
+.navbar__button:hover {
+  background: var(--color-surface-depressed);
+  color: var(--color-text-primary);
+}
+
+.navbar__button:active {
+  transform: scale(0.92);
+}
+
+.navbar__button--active {
+  background: var(--color-surface-elevated);
+  color: var(--color-brand-primary);
+}
+
+/* Safe Area Inset for iPhone */
+@media (pointer: coarse) and (max-width: 430px) {
+  .navbar {
+    padding-left: calc(env(safe-area-inset-left, 0px) + 1.25rem);
+    padding-right: calc(env(safe-area-inset-right, 0px) + 1.25rem);
+  }
+
+  .content-container {
+    padding-left: calc(env(safe-area-inset-left, 0px) + 1rem);
+    padding-right: calc(env(safe-area-inset-right, 0px) + 1rem);
+  }
+}

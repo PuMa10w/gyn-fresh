@@ -1,0 +1,19 @@
+/* Flagship Premium v1.0 - Главный импорт */
+@import './flagship-design-system.css';
+@import './typography.css';
+@import './motion.css';
+@import './flagship-disease-card.css';
+@import './flagship-modal.css';
+@import './flagship-navbar.css';
+
+/* Override legacy styles with new premium ones */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

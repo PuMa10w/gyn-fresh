@@ -1,0 +1,76 @@
+{
+  "ok": true,
+  "generatedAt": "2026-06-08T20:48:33.712Z",
+  "note": "This audit prevents CSS debt from growing while the legacy layers are gradually collapsed into tokens and primitives.",
+  "budgets": {
+    "totalLines": 19000,
+    "important": 2700,
+    "rootBlocks": 80,
+    "mediaBlocks": 180
+  },
+  "totals": {
+    "lines": 18122,
+    "important": 2700,
+    "rootBlocks": 20,
+    "mediaBlocks": 81
+  },
+  "files": [
+    {
+      "file": "src/styles/design-tokens.css",
+      "lines": 52,
+      "important": 0,
+      "rootBlocks": 1,
+      "mediaBlocks": 0
+    },
+    {
+      "file": "src/index.css",
+      "lines": 872,
+      "important": 4,
+      "rootBlocks": 1,
+      "mediaBlocks": 5
+    },
+    {
+      "file": "src/App.css",
+      "lines": 7949,
+      "important": 231,
+      "rootBlocks": 0,
+      "mediaBlocks": 34
+    },
+    {
+      "file": "src/premium-unified.css",
+      "lines": 5143,
+      "important": 1679,
+      "rootBlocks": 11,
+      "mediaBlocks": 26
+    },
+    {
+      "file": "src/styles/ultra-premium-v9.css",
+      "lines": 2426,
+      "important": 638,
+      "rootBlocks": 1,
+      "mediaBlocks": 10
+    },
+    {
+      "file": "src/styles/clinical-worktool.css",
+      "lines": 1168,
+      "important": 148,
+      "rootBlocks": 2,
+      "mediaBlocks": 5
+    },
+    {
+      "file": "src/styles/v1-premium-polish.css",
+      "lines": 320,
+      "important": 0,
+      "rootBlocks": 2,
+      "mediaBlocks": 1
+    },
+    {
+      "file": "src/styles/clinical-v1-4-skin.css",
+      "lines": 192,
+      "important": 0,
+      "rootBlocks": 2,
+      "mediaBlocks": 0
+    }
+  ],
+  "failures": []
+}

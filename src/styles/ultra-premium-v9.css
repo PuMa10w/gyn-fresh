@@ -1,0 +1,2425 @@
+/* Ultra Premium V9: stable layer built on design tokens. */
+html,
+body,
+#root {
+  background: radial-gradient(circle at top left, rgba(232, 160, 140, 0.18), transparent 30%), var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+html:not([data-theme='dark']) .App,
+html:not([data-theme='dark']) main,
+html:not([data-theme='dark']) .page-transition {
+  color: var(--color-text) !important;
+}
+
+.navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 90 !important;
+  background: rgba(255, 250, 245, 0.92) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: 0 12px 32px rgba(92, 58, 64, 0.1) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(24px) !important;
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(43, 32, 35, 0.92) !important;
+}
+
+.navbar-inner {
+  display: grid !important;
+  gap: 0.55rem !important;
+  width: min(1120px, calc(100% - 1rem)) !important;
+  margin: 0 auto !important;
+  padding: calc(0.55rem + env(safe-area-inset-top)) 0.5rem 0.65rem !important;
+}
+
+.navbar-topline {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.75rem !important;
+}
+
+.navbar-brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  min-height: 44px !important;
+  padding: 0.28rem 0.2rem !important;
+  color: var(--color-text) !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.navbar-brand-mark {
+  display: grid !important;
+  place-items: center !important;
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 17px !important;
+  background: linear-gradient(135deg, var(--color-text), #5b3840) !important;
+  color: #fffaf5 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.04em !important;
+  box-shadow: 0 12px 26px rgba(43, 32, 35, 0.18) !important;
+}
+
+.navbar-brand-copy {
+  display: grid !important;
+  gap: 0.05rem !important;
+  text-align: left !important;
+  color: var(--color-text) !important;
+}
+
+.navbar-brand-copy strong {
+  font-size: 0.98rem !important;
+  line-height: 1 !important;
+}
+
+.navbar-brand-copy span {
+  color: var(--color-muted) !important;
+  font-size: 0.76rem !important;
+}
+
+.navbar-utility-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+}
+
+.navbar-icon-button,
+.navbar-overflow-menu button,
+.nav-tab {
+  min-height: 44px !important;
+  border-radius: 16px !important;
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  font-weight: 800 !important;
+  font-size: 0.875rem !important;
+  transition: transform var(--motion-fast), background var(--motion-fast), border-color var(--motion-fast) !important;
+}
+
+.navbar-icon-button {
+  width: 44px !important;
+  padding: 0 !important;
+  font-size: 1.2rem !important;
+}
+
+.navbar-icon-button.is-active,
+.nav-tab.active {
+  background: linear-gradient(135deg, #f3c7b7, #e8a08c) !important;
+  border-color: rgba(185, 120, 134, 0.52) !important;
+  color: #2b2023 !important;
+}
+
+.navbar-overflow-menu {
+  position: absolute !important;
+  top: calc(100% + 0.55rem) !important;
+  right: 0 !important;
+  z-index: 110 !important;
+  display: grid !important;
+  gap: 0.45rem !important;
+  min-width: 210px !important;
+  padding: 0.55rem !important;
+  background: var(--color-surface-raised) !important;
+  border: 1px solid var(--color-border-strong) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.navbar-overflow-menu button {
+  justify-content: flex-start !important;
+  padding: 0 0.85rem !important;
+  text-align: left !important;
+}
+
+.nav-row-primary,
+.nav-scroll {
+  width: 100% !important;
+}
+
+.nav-scroll {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0.45rem !important;
+  padding: 0 !important;
+}
+
+.nav-tab {
+  width: 100% !important;
+  padding: 0 0.55rem !important;
+}
+
+.mobile-bottom-bar {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 120 !important;
+  min-height: calc(var(--mobile-bottom-bar-height) + env(safe-area-inset-bottom)) !important;
+  padding: 0.3rem max(0.75rem, env(safe-area-inset-left)) calc(0.28rem + env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-right)) !important;
+  background: rgba(255, 250, 245, 0.9) !important;
+  border-top: 1px solid var(--color-border) !important;
+  box-shadow: 0 -14px 34px rgba(92, 58, 64, 0.12) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  backdrop-filter: blur(28px) !important;
+}
+
+[data-theme='dark'] .mobile-bottom-bar {
+  background: rgba(43, 32, 35, 0.9) !important;
+}
+
+.mobile-bottom-items {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0.15rem !important;
+  max-width: 520px !important;
+  margin: 0 auto !important;
+}
+
+.mobile-bottom-item {
+  position: relative !important;
+  min-height: 48px !important;
+  padding: 0.2rem 0.25rem 0.45rem !important;
+  border: 0 !important;
+  border-radius: 16px !important;
+  background: transparent !important;
+  color: var(--color-muted-strong) !important;
+  font-size: 0.8rem !important;
+  font-weight: 850 !important;
+}
+
+.mobile-bottom-item.is-active {
+  color: var(--color-text) !important;
+  background: rgba(216, 184, 120, 0.12) !important;
+}
+
+.mobile-bottom-label {
+  display: block !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.mobile-bottom-active-line {
+  position: absolute !important;
+  left: 22% !important;
+  right: 22% !important;
+  bottom: 0.22rem !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: var(--color-gold) !important;
+}
+
+main,
+.home-shell,
+.catalog-section,
+.bookmarks-panel,
+.analytics-dashboard {
+  padding-bottom: calc(var(--mobile-bottom-bar-height) + var(--mobile-readable-gap) + env(safe-area-inset-bottom)) !important;
+}
+
+.catalog-header,
+.catalog-controls,
+.search-input-wrapper,
+.content-card,
+.content-card-wide,
+.structured-item,
+.guideline-card,
+.quick-card,
+.quick-summary-card,
+.immediate-action-card,
+.source-confidence-card,
+.metric-list,
+.metric-item,
+.diagnostics-hero {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.catalog-header,
+.catalog-controls,
+.search-input-wrapper {
+  background: linear-gradient(135deg, #fffaf5, #f6e7d6) !important;
+}
+
+.catalog-controls {
+  background:
+    linear-gradient(135deg, rgba(246, 231, 214, 0.98), rgba(239, 214, 199, 0.96)),
+    #f1ddcf !important;
+  border-color: rgba(185, 120, 134, 0.34) !important;
+  box-shadow: 0 18px 42px rgba(92, 58, 64, 0.13) !important;
+}
+
+.catalog-controls .search-input-wrapper {
+  background: linear-gradient(135deg, #fff8f2, #f2ddcf) !important;
+  border-color: rgba(185, 120, 134, 0.42) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 10px 24px rgba(92, 58, 64, 0.09) !important;
+}
+
+.catalog-title,
+.catalog-description,
+.card-title,
+.card-desc,
+.content-card p,
+.content-card li,
+.structured-item p,
+.structured-item li,
+.metric-item dd,
+.guideline-card p {
+  color: var(--color-text) !important;
+}
+
+.catalog-description,
+.card-desc,
+.content-card small,
+.structured-item-note,
+.guideline-region {
+  color: var(--color-muted) !important;
+}
+
+.search-input,
+.search-input input,
+input[type='search'] {
+  background: #fff8f2 !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border-strong) !important;
+}
+
+.search-input::placeholder,
+.search-input input::placeholder,
+input[type='search']::placeholder {
+  color: rgba(82, 61, 67, 0.92) !important;
+}
+
+.search-suggestions {
+  gap: 0.55rem !important;
+  padding: 0.08rem 0.08rem 0.14rem !important;
+}
+
+.search-suggestion-chip {
+  min-height: 46px !important;
+  padding: 0.58rem 0.78rem !important;
+  border: 1px solid rgba(144, 84, 96, 0.42) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 242, 0.98), rgba(241, 219, 207, 0.96)),
+    #f1ddcf !important;
+  color: #2b2023 !important;
+  box-shadow: 0 10px 22px rgba(92, 58, 64, 0.11) !important;
+}
+
+.search-suggestion-chip span {
+  color: #2b2023 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.search-suggestion-chip small {
+  color: #5f4850 !important;
+  font-weight: 750 !important;
+}
+
+.category-filter,
+.category-chips,
+.modal-tabs,
+.pharma-tabs {
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+  mask-image: linear-gradient(90deg, transparent 0, #000 0.5rem, #000 calc(100% - 1.1rem), transparent 100%) !important;
+}
+
+.category-filter::-webkit-scrollbar,
+.category-chips::-webkit-scrollbar,
+.modal-tabs::-webkit-scrollbar,
+.pharma-tabs::-webkit-scrollbar {
+  display: none !important;
+}
+
+.category-chip,
+.tab-btn,
+.modal-tab,
+.pharma-tab {
+  min-height: 44px !important;
+  white-space: nowrap !important;
+  background: rgba(255, 250, 245, 0.88) !important;
+  color: var(--color-muted-strong) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 999px !important;
+  font-size: 0.85rem !important;
+  font-weight: 850 !important;
+}
+
+.category-chip.active,
+.tab-btn.active,
+.modal-tab.active,
+.pharma-tab.active {
+  background: linear-gradient(135deg, #f4c5b4, var(--color-coral)) !important;
+  color: #2b2023 !important;
+  border-color: rgba(185, 120, 134, 0.52) !important;
+}
+
+.quick-card-alert {
+  background: #fff5f5 !important;
+  border-color: rgba(200, 79, 95, 0.24) !important;
+  border-left: 5px solid var(--color-alert) !important;
+  color: var(--color-text) !important;
+}
+
+.quick-card-alert h3,
+.quick-card-alert .structured-item-title {
+  color: #a53643 !important;
+}
+
+.structured-item-title,
+.content-card h3,
+.metric-item dt {
+  color: var(--color-text) !important;
+  font-weight: 850 !important;
+}
+
+.inline-guideline-badge,
+.guideline-badge,
+.badge-eau,
+.badge-acog,
+.badge-ranzcog,
+.badge-ru,
+.badge-cdc {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 24px !important;
+  padding: 0.15rem 0.5rem !important;
+  border-radius: 999px !important;
+  color: #fffaf5 !important;
+  font-size: 0.74rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em !important;
+}
+
+.badge-eau { background: #4f79b8 !important; }
+.badge-acog { background: #5f936f !important; }
+.badge-ranzcog { background: #8265a8 !important; }
+.badge-ru { background: #b35a64 !important; }
+.badge-cdc { background: #6d7894 !important; }
+
+.card-primary-action {
+  display: none !important;
+}
+
+.disease-card {
+  background: linear-gradient(135deg, #fffaf5, #f7eadc) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.disease-card:active {
+  transform: scale(0.985) !important;
+}
+
+.clinical-template-assistant,
+.anatomy-atlas-shell {
+  background: linear-gradient(135deg, #fffaf5, #f8ebdf) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-panel) !important;
+  color: var(--color-text) !important;
+  box-shadow: var(--shadow-card) !important;
+  padding: clamp(1rem, 4vw, 1.35rem) !important;
+}
+
+[data-theme='dark'] .clinical-template-assistant,
+[data-theme='dark'] .anatomy-atlas-shell {
+  background: linear-gradient(135deg, #2f2326, #3a2a2f) !important;
+}
+
+.clinical-template-header,
+.anatomy-atlas-header {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.clinical-template-eyebrow,
+.anatomy-atlas-eyebrow,
+.anatomy-hotspot-meta {
+  color: var(--color-rose) !important;
+  font-size: 0.76rem !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+.clinical-template-header h3,
+.anatomy-atlas-header h3 {
+  margin: 0;
+  color: var(--color-text) !important;
+  font-size: clamp(1.25rem, 6vw, 1.85rem);
+}
+
+.clinical-template-header p,
+.anatomy-atlas-header p,
+.clinical-template-disclaimer {
+  margin: 0;
+  color: var(--color-muted) !important;
+  line-height: 1.6;
+}
+
+.clinical-template-grid,
+.anatomy-scene-rail {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.clinical-template-grid::-webkit-scrollbar,
+.anatomy-scene-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.clinical-template-button,
+.anatomy-scene-chip,
+.anatomy-action-button,
+.clinical-template-copy,
+.anatomy-sheet-link {
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  font-weight: 850;
+  padding: 0.55rem 0.85rem;
+}
+
+.clinical-template-button.is-active,
+.anatomy-scene-chip.is-active,
+.anatomy-action-button.is-primary,
+.anatomy-sheet-link {
+  background: linear-gradient(135deg, #f4c5b4, var(--color-coral));
+  border-color: rgba(185, 120, 134, 0.5);
+  color: #2b2023;
+}
+
+.clinical-template-loading,
+.clinical-template-empty,
+.clinical-template-output {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.clinical-template-output pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font: inherit;
+  color: var(--color-text);
+}
+
+.clinical-template-spinner,
+.anatomy-atlas-skeleton .atlas-skeleton-orbit {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(185, 120, 134, 0.22);
+  border-top-color: var(--color-rose);
+  border-radius: 50%;
+  animation: premiumSpin 0.9s linear infinite;
+}
+
+@keyframes premiumSpin { to { transform: rotate(360deg); } }
+
+.anatomy-atlas-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.anatomy-atlas-viewport {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  background:
+    radial-gradient(circle at 48% 38%, rgba(232, 160, 140, 0.24), transparent 35%),
+    linear-gradient(135deg, #fff9f3, #f4dfd1);
+}
+
+.anatomy-atlas-stage {
+  position: absolute;
+  inset: 0;
+  min-height: 360px;
+  touch-action: none;
+}
+
+.anatomy-atlas-canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: grab;
+}
+
+.anatomy-atlas-canvas:active {
+  cursor: grabbing;
+}
+
+.anatomy-atlas-skeleton,
+.anatomy-atlas-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.55rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-text);
+  background: linear-gradient(135deg, #fffaf5, #f6e7d6);
+}
+
+.anatomy-atlas-fallback svg {
+  width: min(260px, 82%);
+  height: auto;
+  filter: drop-shadow(0 20px 28px rgba(92, 58, 64, 0.12));
+}
+
+.anatomy-atlas-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.85rem;
+  z-index: 3;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 1.5rem);
+  padding: 0.48rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(43, 32, 35, 0.72);
+  color: #fffaf5;
+  font-size: 0.78rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.anatomy-atlas-panel {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.anatomy-hotspot-list {
+  display: grid;
+  gap: 0.6rem;
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 0.15rem;
+}
+
+.anatomy-hotspot-card {
+  display: grid;
+  gap: 0.28rem;
+  width: 100%;
+  padding: 0.82rem;
+  text-align: left;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--color-text);
+}
+
+.anatomy-hotspot-card span:last-child {
+  color: var(--color-muted);
+  line-height: 1.45;
+}
+
+.anatomy-hotspot-card.is-selected {
+  border-color: rgba(185, 120, 134, 0.62);
+  box-shadow: 0 0 0 3px rgba(232, 160, 140, 0.18);
+}
+
+.anatomy-hotspot-card.risk-urgent,
+.anatomy-hotspot-sheet.risk-urgent {
+  border-left: 5px solid var(--color-alert);
+}
+
+.anatomy-atlas-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.anatomy-hotspot-sheet {
+  position: fixed;
+  left: max(0.8rem, env(safe-area-inset-left));
+  right: max(0.8rem, env(safe-area-inset-right));
+  bottom: calc(var(--mobile-bottom-bar-height) + 0.8rem + env(safe-area-inset-bottom));
+  z-index: 180;
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  border-radius: 24px;
+  border: 1px solid var(--color-border-strong);
+  background: rgba(255, 250, 245, 0.96);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px rgba(43, 32, 35, 0.22);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+}
+
+.anatomy-hotspot-sheet h4,
+.anatomy-hotspot-sheet p {
+  margin: 0;
+}
+
+.anatomy-hotspot-sheet p {
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.anatomy-sheet-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    width: min(100% - 0.7rem, 640px) !important;
+  }
+
+  .navbar-brand-copy span {
+    display: none !important;
+  }
+
+  .catalog-header,
+  .catalog-controls {
+    padding: 1rem !important;
+  }
+
+  .anatomy-atlas-layout {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .anatomy-atlas-shell {
+    padding: 0.85rem !important;
+  }
+
+  .anatomy-atlas-header {
+    gap: 0.28rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .anatomy-atlas-header h3 {
+    font-size: 1.35rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .anatomy-atlas-header p {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.92rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .anatomy-atlas-viewport {
+    min-height: 300px !important;
+  }
+
+  .anatomy-atlas-stage {
+    min-height: 300px !important;
+  }
+
+  .anatomy-hotspot-list {
+    max-height: none;
+  }
+
+  .modal-content.mobile-sheet .modal-body,
+  .questionnaire-modal.mobile-sheet .modal-body,
+  .pharmacology-modal.mobile-sheet .pharma-content {
+    padding-bottom: calc(var(--mobile-bottom-bar-height) + 2.1rem + env(safe-area-inset-bottom)) !important;
+    scroll-padding-bottom: calc(var(--mobile-bottom-bar-height) + 2.1rem + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Ultra Premium V10.2: annotation fixes for PWA, AI and 3D clinical tools. */
+html main .version-checker.glass,
+body main .version-checker.glass,
+html[data-theme='light'] main .version-checker.glass,
+html:not([data-theme='dark']) main .version-checker.glass,
+html[data-theme='dark'] main .version-checker.glass,
+body[data-theme='dark'] main .version-checker.glass {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(255, 255, 255, 0.82), transparent 34%),
+    linear-gradient(145deg, #fff7f1 0%, #f6e4d5 52%, #efd3c8 100%) !important;
+  border: 1px solid rgba(185, 120, 134, 0.26) !important;
+  box-shadow: 0 18px 44px rgba(92, 58, 64, 0.16) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html main .version-checker.glass *,
+body main .version-checker.glass * {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html main .version-checker.glass .version-kicker,
+body main .version-checker.glass .version-kicker {
+  background: rgba(255, 250, 245, 0.9) !important;
+  border: 1px solid rgba(216, 184, 120, 0.5) !important;
+  color: #7a5b2a !important;
+  -webkit-text-fill-color: #7a5b2a !important;
+}
+
+html main .version-checker.glass .version-meta-grid > div,
+html main .version-checker.glass .version-update-card,
+html main .version-checker.glass .version-ready-state,
+html main .version-checker.glass .version-error-state,
+body main .version-checker.glass .version-meta-grid > div,
+body main .version-checker.glass .version-update-card,
+body main .version-checker.glass .version-ready-state,
+body main .version-checker.glass .version-error-state {
+  background: linear-gradient(135deg, rgba(255, 250, 245, 0.94), rgba(249, 232, 220, 0.78)) !important;
+  border: 1px solid rgba(185, 120, 134, 0.22) !important;
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.08) !important;
+}
+
+html main .version-checker.glass .premium-button,
+body main .version-checker.glass .premium-button {
+  background: rgba(255, 250, 245, 0.94) !important;
+  border: 1px solid rgba(185, 120, 134, 0.26) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  box-shadow: 0 8px 18px rgba(92, 58, 64, 0.08) !important;
+}
+
+html main .version-checker.glass .version-actions .premium-button--primary,
+body main .version-checker.glass .version-actions .premium-button--primary {
+  background: linear-gradient(135deg, #efb59f, #d996a2) !important;
+  border-color: rgba(185, 120, 134, 0.42) !important;
+  box-shadow: 0 12px 28px rgba(185, 120, 134, 0.22) !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-assistant,
+.modal-content.mobile-sheet .anatomy-atlas-shell,
+.modal-content.mobile-sheet .symptom-checker,
+.modal-content.mobile-sheet .pubmed-feed,
+.modal-content.mobile-sheet .clinical-tool-fallback {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.9), transparent 34%),
+    linear-gradient(145deg, #fffaf5 0%, #fff4ec 54%, #f8e4d8 100%) !important;
+  border: 1px solid rgba(185, 120, 134, 0.22) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  box-shadow: 0 18px 40px rgba(92, 58, 64, 0.12) !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-assistant *,
+.modal-content.mobile-sheet .anatomy-atlas-shell *,
+.modal-content.mobile-sheet .symptom-checker *,
+.modal-content.mobile-sheet .pubmed-feed *,
+.modal-content.mobile-sheet .clinical-tool-fallback * {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-eyebrow,
+.modal-content.mobile-sheet .clinical-tool-eyebrow,
+.modal-content.mobile-sheet .clinical-tool-kicker,
+.modal-content.mobile-sheet .anatomy-atlas-eyebrow,
+.modal-content.mobile-sheet .anatomy-hotspot-meta {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgba(216, 184, 120, 0.48);
+  background: rgba(255, 250, 245, 0.9) !important;
+  color: #7a5b2a !important;
+  -webkit-text-fill-color: #7a5b2a !important;
+  padding: 0.34rem 0.62rem;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.modal-content.mobile-sheet .clinical-template-output,
+.modal-content.mobile-sheet .clinical-template-empty,
+.modal-content.mobile-sheet .clinical-template-loading,
+.modal-content.mobile-sheet .clinical-tool-empty,
+.modal-content.mobile-sheet .clinical-tool-loading,
+.modal-content.mobile-sheet .symptom-results,
+.modal-content.mobile-sheet .pubmed-paper-card,
+.modal-content.mobile-sheet .pubmed-abstract,
+.modal-content.mobile-sheet .anatomy-atlas-panel,
+.modal-content.mobile-sheet .anatomy-atlas-fallback,
+.modal-content.mobile-sheet .anatomy-atlas-skeleton,
+.modal-content.mobile-sheet .anatomy-hotspot-sheet {
+  background: rgba(255, 250, 245, 0.9) !important;
+  border: 1px solid rgba(185, 120, 134, 0.2) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.08) !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-button,
+.modal-content.mobile-sheet .clinical-template-copy,
+.modal-content.mobile-sheet .clinical-tool-retry,
+.modal-content.mobile-sheet .symptom-chip,
+.modal-content.mobile-sheet .symptom-open-link,
+.modal-content.mobile-sheet .pubmed-paper-main,
+.modal-content.mobile-sheet .anatomy-scene-chip,
+.modal-content.mobile-sheet .anatomy-action-button,
+.modal-content.mobile-sheet .anatomy-sheet-link {
+  background: rgba(255, 250, 245, 0.94) !important;
+  border: 1px solid rgba(185, 120, 134, 0.24) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  box-shadow: 0 8px 18px rgba(92, 58, 64, 0.07) !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-button.is-active,
+.modal-content.mobile-sheet .symptom-chip.is-selected,
+.modal-content.mobile-sheet .anatomy-scene-chip.is-active,
+.modal-content.mobile-sheet .anatomy-action-button.is-primary,
+.modal-content.mobile-sheet .anatomy-sheet-link,
+.modal-content.mobile-sheet .clinical-tool-retry {
+  background: linear-gradient(135deg, #efb59f, #d996a2) !important;
+  border-color: rgba(185, 120, 134, 0.42) !important;
+  box-shadow: 0 12px 28px rgba(185, 120, 134, 0.2) !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-output pre {
+  background: rgba(255, 248, 244, 0.88) !important;
+  border-radius: 18px;
+  padding: 0.9rem;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+.modal-content.mobile-sheet .anatomy-atlas-viewport {
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.74), transparent 34%),
+    linear-gradient(160deg, rgba(255, 250, 245, 0.96), rgba(246, 219, 207, 0.84)) !important;
+  border: 1px solid rgba(185, 120, 134, 0.2) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 14px 32px rgba(92, 58, 64, 0.1) !important;
+}
+
+.modal-content.mobile-sheet .anatomy-hotspot-card {
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.modal-content.mobile-sheet .anatomy-hotspot-card.risk-urgent {
+  border-color: rgba(199, 111, 122, 0.38) !important;
+  background: linear-gradient(135deg, #fff5f5, #fffaf5) !important;
+}
+
+.modal-content.mobile-sheet .anatomy-hotspot-card.risk-attention {
+  border-color: rgba(217, 150, 162, 0.4) !important;
+  background: linear-gradient(135deg, #fff4ec, #fffaf5) !important;
+}
+
+.modal-content.mobile-sheet .anatomy-hotspot-card.risk-routine {
+  border-color: rgba(216, 184, 120, 0.38) !important;
+  background: linear-gradient(135deg, #fff8e8, #fffaf5) !important;
+}
+
+.modal-content.mobile-sheet .clinical-tool-fallback {
+  padding: 1.1rem;
+  border-radius: 24px;
+}
+
+@media (max-width: 430px) {
+  .modal-content.mobile-sheet .anatomy-atlas-viewport {
+    min-height: 430px !important;
+  }
+
+  .modal-content.mobile-sheet .anatomy-atlas-stage {
+    min-height: 410px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clinical-template-spinner,
+  .anatomy-atlas-skeleton .atlas-skeleton-orbit {
+    animation: none !important;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+.navbar-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  margin-left: auto !important;
+}
+
+.navbar-action-button {
+  min-height: 44px !important;
+  padding: 0 0.75rem !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 16px !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  font-size: 0.84rem !important;
+  font-weight: 850 !important;
+}
+
+.navbar-action-button.is-active {
+  background: linear-gradient(135deg, #f4c5b4, var(--color-coral)) !important;
+  color: #2b2023 !important;
+}
+
+@media (max-width: 768px) {
+  .navbar-actions {
+    display: none !important;
+  }
+}
+
+/* V9 readability hotfix: disease modal content must stay light and readable in light theme. */
+html:not([data-theme='dark']) .modal-content.mobile-sheet,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .modal-body {
+  background: linear-gradient(180deg, #fff7f0 0%, #fffaf5 45%, #f8e8dc 100%) !important;
+  color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-wide,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-summary-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .immediate-action-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .source-confidence-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-timeline-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .diagnostics-hero,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-list,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-item,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .patient-memo,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .memo-card {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 245, 0.98), rgba(246, 231, 214, 0.88)),
+    #fffaf5 !important;
+  border: 1px solid rgba(185, 120, 134, 0.24) !important;
+  color: #2b2023 !important;
+  box-shadow: 0 14px 34px rgba(92, 58, 64, 0.11) !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-wide:first-of-type,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-summary-card {
+  background:
+    linear-gradient(90deg, rgba(217, 150, 162, 0.14) 0 5px, transparent 5px),
+    linear-gradient(135deg, #fffaf5, #f8e8dc) !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card-alert {
+  background:
+    linear-gradient(90deg, rgba(200, 79, 95, 0.96) 0 5px, transparent 5px),
+    linear-gradient(135deg, #fff5f5, #fffafa) !important;
+  border: 1px solid rgba(200, 79, 95, 0.28) !important;
+  color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-wide *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-summary-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .immediate-action-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .source-confidence-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-timeline-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .diagnostics-hero *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-list *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-item *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .patient-memo *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .memo-card * {
+  color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet p,
+html:not([data-theme='dark']) .modal-content.mobile-sheet li,
+html:not([data-theme='dark']) .modal-content.mobile-sheet dd,
+html:not([data-theme='dark']) .modal-content.mobile-sheet small,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item-note,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-region {
+  color: #5f4850 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet h2,
+html:not([data-theme='dark']) .modal-content.mobile-sheet h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet h4,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item-title,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-title,
+html:not([data-theme='dark']) .modal-content.mobile-sheet dt {
+  color: #2b2023 !important;
+  font-weight: 900 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card-alert h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card-alert h4,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .risk-urgent h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .risk-urgent h4 {
+  color: #a53643 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .modal-grid {
+  gap: 0.85rem !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .modal-tabs {
+  background: rgba(246, 231, 214, 0.94) !important;
+  border-color: rgba(185, 120, 134, 0.24) !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .modal-tab {
+  background: rgba(255, 250, 245, 0.92) !important;
+  color: #46373d !important;
+  border-color: rgba(185, 120, 134, 0.28) !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .modal-tab.active {
+  background: linear-gradient(135deg, #f4c5b4, #e8a08c) !important;
+  color: #2b2023 !important;
+  border-color: rgba(185, 120, 134, 0.52) !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .tab-content h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-wide h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-card h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item-title,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-item dt {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin: 0 0 0.78rem !important;
+  padding: 0.46rem 0.82rem !important;
+  border: 1px solid rgba(185, 120, 134, 0.28) !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 245, 0.98), rgba(246, 211, 198, 0.92)),
+    #f6e7d6 !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  box-shadow: 0 8px 18px rgba(92, 58, 64, 0.08) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  opacity: 1 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .tab-content h3 *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card h3 *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-wide h3 *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card h3 *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-card h3 *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item-title *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-item dt * {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card-alert h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card-alert .structured-item-title {
+  background:
+    linear-gradient(135deg, rgba(255, 245, 245, 0.98), rgba(248, 217, 219, 0.94)),
+    #fff5f5 !important;
+  color: #8f2432 !important;
+  -webkit-text-fill-color: #8f2432 !important;
+  border-color: rgba(200, 79, 95, 0.36) !important;
+}
+
+/* Home update panel: keep PWA status in the same peach premium language as the dashboard. */
+html:not([data-theme='dark']) .version-checker {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(255, 255, 255, 0.72), transparent 36%),
+    linear-gradient(145deg, #fff5ed 0%, #f8e4d5 54%, #f0d3c1 100%) !important;
+  border: 1px solid rgba(185, 120, 134, 0.24) !important;
+  color: #2b2023 !important;
+  box-shadow: 0 18px 48px rgba(92, 58, 64, 0.13) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html:not([data-theme='dark']) .version-checker *,
+html:not([data-theme='dark']) .version-checker h4,
+html:not([data-theme='dark']) .version-checker p,
+html:not([data-theme='dark']) .version-checker li,
+html:not([data-theme='dark']) .version-checker span,
+html:not([data-theme='dark']) .version-checker strong {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .version-kicker {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin-bottom: 0.38rem !important;
+  padding: 0.28rem 0.6rem !important;
+  border: 1px solid rgba(216, 184, 120, 0.4) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 250, 245, 0.72) !important;
+  color: #7a5b2a !important;
+  -webkit-text-fill-color: #7a5b2a !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+html:not([data-theme='dark']) .version-checker-head {
+  align-items: center !important;
+  gap: 0.8rem !important;
+}
+
+html:not([data-theme='dark']) .version-checker-head h4 {
+  margin: 0 !important;
+  font-size: 1.18rem !important;
+  line-height: 1.15 !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .version-meta-grid > div,
+html:not([data-theme='dark']) .version-update-card,
+html:not([data-theme='dark']) .version-ready-state,
+html:not([data-theme='dark']) .version-error-state {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 245, 0.9), rgba(246, 231, 214, 0.72)),
+    #fffaf5 !important;
+  border: 1px solid rgba(185, 120, 134, 0.22) !important;
+  color: #2b2023 !important;
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.08) !important;
+}
+
+html:not([data-theme='dark']) .version-meta-grid span,
+html:not([data-theme='dark']) .version-update-title span,
+html:not([data-theme='dark']) .version-update-card p {
+  color: #5f4850 !important;
+  -webkit-text-fill-color: #5f4850 !important;
+}
+
+html:not([data-theme='dark']) .version-meta-grid strong,
+html:not([data-theme='dark']) .version-update-title strong {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .version-actions .premium-button,
+html:not([data-theme='dark']) .version-checker-head .premium-button {
+  min-height: 44px !important;
+  border-radius: 18px !important;
+  border-color: rgba(185, 120, 134, 0.28) !important;
+  background: rgba(255, 250, 245, 0.82) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.08) !important;
+}
+
+html:not([data-theme='dark']) .version-actions .premium-button--primary {
+  background: linear-gradient(135deg, #f4c5b4, #d996a2) !important;
+  border-color: rgba(185, 120, 134, 0.38) !important;
+}
+
+@media (max-width: 768px) {
+  html:not([data-theme='dark']) .version-checker {
+    margin-inline: 0.7rem !important;
+    padding: 1rem !important;
+    border-radius: 24px !important;
+  }
+
+  html:not([data-theme='dark']) .version-meta-grid {
+    gap: 0.65rem !important;
+  }
+}
+
+/* Version checker final override: theme lives on <html>, not <body>. */
+html:not([data-theme='dark']) .version-checker.glass,
+html:not([data-theme='dark']) main .version-checker.glass,
+html[data-theme='light'] .version-checker.glass,
+html[data-theme='light'] main .version-checker.glass {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.78), transparent 36%),
+    linear-gradient(145deg, #fff4ec 0%, #f9e8dc 58%, #f6e7d6 100%) !important;
+  border: 1px solid rgba(185, 120, 134, 0.2) !important;
+  color: #2b2023 !important;
+  box-shadow: 0 18px 48px rgba(92, 58, 64, 0.13) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html[data-theme='dark'] .version-checker.glass,
+html[data-theme='dark'] main .version-checker.glass {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(232, 160, 140, 0.18), transparent 38%),
+    linear-gradient(145deg, #3a272b 0%, #2f2024 58%, #271a1e 100%) !important;
+  border: 1px solid rgba(232, 160, 140, 0.24) !important;
+  color: #fff7ef !important;
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.28) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(112%) !important;
+  backdrop-filter: blur(18px) saturate(112%) !important;
+}
+
+html:not([data-theme='dark']) .version-checker.glass *,
+html[data-theme='light'] .version-checker.glass * {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html[data-theme='dark'] .version-checker.glass * {
+  color: #fff7ef !important;
+  -webkit-text-fill-color: #fff7ef !important;
+}
+
+html:not([data-theme='dark']) .version-checker.glass .version-kicker,
+html[data-theme='light'] .version-checker.glass .version-kicker {
+  background: rgba(255, 250, 245, 0.78) !important;
+  border-color: rgba(216, 184, 120, 0.42) !important;
+  color: #7a5b2a !important;
+  -webkit-text-fill-color: #7a5b2a !important;
+}
+
+html[data-theme='dark'] .version-checker.glass .version-kicker {
+  background: rgba(232, 160, 140, 0.14) !important;
+  border-color: rgba(216, 184, 120, 0.28) !important;
+  color: #e1c57f !important;
+  -webkit-text-fill-color: #e1c57f !important;
+}
+
+html:not([data-theme='dark']) .version-checker.glass .version-meta-grid > div,
+html:not([data-theme='dark']) .version-checker.glass .version-update-card,
+html:not([data-theme='dark']) .version-checker.glass .version-ready-state,
+html:not([data-theme='dark']) .version-checker.glass .version-error-state,
+html[data-theme='light'] .version-checker.glass .version-meta-grid > div,
+html[data-theme='light'] .version-checker.glass .version-update-card,
+html[data-theme='light'] .version-checker.glass .version-ready-state,
+html[data-theme='light'] .version-checker.glass .version-error-state {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 245, 0.94), rgba(249, 232, 220, 0.88)),
+    #fff4ec !important;
+  border: 1px solid rgba(185, 120, 134, 0.18) !important;
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.08) !important;
+}
+
+html[data-theme='dark'] .version-checker.glass .version-meta-grid > div,
+html[data-theme='dark'] .version-checker.glass .version-update-card,
+html[data-theme='dark'] .version-checker.glass .version-ready-state,
+html[data-theme='dark'] .version-checker.glass .version-error-state {
+  background:
+    linear-gradient(135deg, rgba(70, 49, 49, 0.84), rgba(49, 34, 38, 0.82)),
+    #3a272b !important;
+  border: 1px solid rgba(232, 160, 140, 0.22) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
+}
+
+html:not([data-theme='dark']) .version-checker.glass .version-actions .premium-button--primary,
+html[data-theme='light'] .version-checker.glass .version-actions .premium-button--primary {
+  background: linear-gradient(135deg, #f4c5b4, #d996a2) !important;
+  border-color: rgba(185, 120, 134, 0.38) !important;
+}
+
+/* Click-safe disease cards: the whole card is the button, no invisible overlay traps. */
+.disease-card {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  font: inherit !important;
+}
+
+.disease-card-action {
+  display: none !important;
+}
+
+.disease-card .favorite-btn {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Clinical utility tabs should match sources/overview cards, not dark legacy glass. */
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-tool-surface,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-assistant,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-atlas-shell,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .symptom-checker,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .pubmed-feed,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-tool-surface,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-assistant,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-atlas-shell,
+html[data-theme='light'] .modal-content.mobile-sheet .symptom-checker,
+html[data-theme='light'] .modal-content.mobile-sheet .pubmed-feed {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(255, 255, 255, 0.72), transparent 34%),
+    linear-gradient(145deg, #fffaf5, #f8e8dc) !important;
+  border: 1px solid rgba(185, 120, 134, 0.24) !important;
+  color: #2b2023 !important;
+  box-shadow: 0 16px 38px rgba(92, 58, 64, 0.12) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-tool-surface *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-assistant *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-atlas-shell *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .symptom-checker *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .pubmed-feed *,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-tool-surface *,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-assistant *,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-atlas-shell *,
+html[data-theme='light'] .modal-content.mobile-sheet .symptom-checker *,
+html[data-theme='light'] .modal-content.mobile-sheet .pubmed-feed * {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+.clinical-tool-header,
+.clinical-tool-header-row {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.clinical-tool-header-row {
+  grid-template-columns: 1fr auto;
+  align-items: start;
+}
+
+.clinical-tool-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.28rem 0.62rem;
+  border: 1px solid rgba(216, 184, 120, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 250, 245, 0.74);
+  color: #7a5b2a !important;
+  -webkit-text-fill-color: #7a5b2a !important;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.clinical-tool-header h3,
+.clinical-tool-header h4 {
+  margin: 0;
+  font-size: clamp(1.2rem, 5vw, 1.7rem);
+}
+
+.clinical-tool-header p,
+.clinical-tool-note,
+.clinical-tool-empty {
+  color: #5f4850 !important;
+  -webkit-text-fill-color: #5f4850 !important;
+  line-height: 1.58;
+}
+
+.symptom-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.symptom-chip,
+.symptom-open-link {
+  min-height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(185, 120, 134, 0.24);
+  background: rgba(255, 250, 245, 0.76);
+  color: #2b2023;
+  font-weight: 820;
+  padding: 0.55rem 0.82rem;
+}
+
+.symptom-chip.is-selected,
+.symptom-open-link {
+  background: linear-gradient(135deg, #f4c5b4, #d996a2);
+  border-color: rgba(185, 120, 134, 0.45);
+}
+
+.clinical-tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.symptom-results,
+.clinical-tool-loading,
+.clinical-tool-empty,
+.pubmed-paper-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(185, 120, 134, 0.2);
+  background: rgba(255, 250, 245, 0.74);
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.08);
+}
+
+.symptom-result-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.78rem;
+  border-radius: 18px;
+  border: 1px solid rgba(185, 120, 134, 0.18);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.symptom-result-card.is-top {
+  border-color: rgba(216, 184, 120, 0.44);
+  background: rgba(255, 246, 224, 0.64);
+}
+
+.symptom-result-card span,
+.symptom-score {
+  color: #5f4850 !important;
+  -webkit-text-fill-color: #5f4850 !important;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.pubmed-paper-list {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.pubmed-paper-main {
+  appearance: none;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+.pubmed-paper-main h4 {
+  margin: 0 0 0.4rem;
+  line-height: 1.35;
+}
+
+.pubmed-paper-main span,
+.pubmed-paper-main small,
+.pubmed-abstract {
+  color: #5f4850 !important;
+  -webkit-text-fill-color: #5f4850 !important;
+}
+
+/* 3D atlas premium detail layer. */
+.anatomy-atlas-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.anatomy-atlas-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(216, 154, 167, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 12%, rgba(216, 184, 120, 0.14), transparent 28%);
+}
+
+.anatomy-atlas-viewport {
+  min-height: 460px !important;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(216, 154, 167, 0.28), transparent 32%),
+    radial-gradient(circle at 50% 72%, rgba(216, 184, 120, 0.14), transparent 36%),
+    linear-gradient(145deg, #fff8f2, #f3ddcf) !important;
+}
+
+.anatomy-atlas-stage {
+  min-height: 440px !important;
+}
+
+.anatomy-hotspot-card {
+  transition: transform var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast);
+}
+
+.anatomy-hotspot-card:hover,
+.anatomy-hotspot-card.is-selected {
+  transform: translateY(-1px);
+  border-color: rgba(185, 120, 134, 0.56) !important;
+  box-shadow: 0 12px 28px rgba(92, 58, 64, 0.13), 0 0 0 3px rgba(232, 160, 140, 0.16) !important;
+}
+
+.anatomy-hotspot-card.risk-urgent {
+  background: linear-gradient(135deg, rgba(255, 245, 245, 0.92), rgba(255, 250, 245, 0.78)) !important;
+}
+
+.anatomy-hotspot-card.risk-attention {
+  background: linear-gradient(135deg, rgba(255, 244, 236, 0.94), rgba(255, 250, 245, 0.76)) !important;
+}
+
+.anatomy-hotspot-card.risk-routine {
+  background: linear-gradient(135deg, rgba(255, 248, 232, 0.94), rgba(255, 250, 245, 0.76)) !important;
+}
+
+@media (max-width: 768px) {
+  .clinical-tool-header-row {
+    grid-template-columns: 1fr;
+  }
+
+  .anatomy-atlas-viewport {
+    min-height: 380px !important;
+  }
+
+  .anatomy-atlas-stage {
+    min-height: 360px !important;
+  }
+}
+/* Final readability pass for PWA panel and clinical utility sections. */
+html:not([data-theme='dark']) main .version-checker.glass,
+html[data-theme='light'] main .version-checker.glass {
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.82), transparent 34%),
+    linear-gradient(145deg, #fff7f1 0%, #f6dfd0 100%) !important;
+  border: 1px solid rgba(185, 120, 134, 0.28) !important;
+  box-shadow: 0 18px 44px rgba(92, 58, 64, 0.14) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) main .version-checker.glass *,
+html[data-theme='light'] main .version-checker.glass * {
+  opacity: 1 !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) main .version-checker.glass .version-kicker,
+html[data-theme='light'] main .version-checker.glass .version-kicker {
+  background: rgba(255, 250, 245, 0.88) !important;
+  border: 1px solid rgba(216, 184, 120, 0.48) !important;
+  color: #7a5b2a !important;
+  -webkit-text-fill-color: #7a5b2a !important;
+}
+
+html:not([data-theme='dark']) main .version-checker.glass .version-meta-grid > div,
+html:not([data-theme='dark']) main .version-checker.glass .version-update-card,
+html:not([data-theme='dark']) main .version-checker.glass .version-ready-state,
+html:not([data-theme='dark']) main .version-checker.glass .version-error-state,
+html[data-theme='light'] main .version-checker.glass .version-meta-grid > div,
+html[data-theme='light'] main .version-checker.glass .version-update-card,
+html[data-theme='light'] main .version-checker.glass .version-ready-state,
+html[data-theme='light'] main .version-checker.glass .version-error-state {
+  background: rgba(255, 250, 245, 0.82) !important;
+  border: 1px solid rgba(185, 120, 134, 0.2) !important;
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.07) !important;
+}
+
+html:not([data-theme='dark']) main .version-checker.glass .premium-button,
+html[data-theme='light'] main .version-checker.glass .premium-button {
+  background: rgba(255, 250, 245, 0.92) !important;
+  border: 1px solid rgba(185, 120, 134, 0.24) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) main .version-checker.glass .version-actions .premium-button--primary,
+html[data-theme='light'] main .version-checker.glass .version-actions .premium-button--primary {
+  background: linear-gradient(135deg, #efb59f, #d996a2) !important;
+  border-color: rgba(185, 120, 134, 0.42) !important;
+  box-shadow: 0 12px 28px rgba(185, 120, 134, 0.22) !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-output,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-empty,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-loading,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-atlas-panel,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-hotspot-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-atlas-fallback,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-atlas-skeleton,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-output,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-empty,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-loading,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-atlas-panel,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-hotspot-card,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-atlas-fallback,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-atlas-skeleton {
+  background: rgba(255, 250, 245, 0.84) !important;
+  border: 1px solid rgba(185, 120, 134, 0.2) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  box-shadow: 0 10px 24px rgba(92, 58, 64, 0.08) !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-button,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-copy,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-atlas-action,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-scene-tab,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-button,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-copy,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-atlas-action,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-scene-tab {
+  background: rgba(255, 250, 245, 0.9) !important;
+  border: 1px solid rgba(185, 120, 134, 0.24) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-template-button.is-active,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .anatomy-scene-tab.is-active,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-template-button.is-active,
+html[data-theme='light'] .modal-content.mobile-sheet .anatomy-scene-tab.is-active {
+  background: linear-gradient(135deg, #efb59f, #d996a2) !important;
+  border-color: rgba(185, 120, 134, 0.42) !important;
+}
+/* iPhone-safe clinical tools: no text/button overflow inside DiseaseModal. */
+.modal-content.mobile-sheet .modal-body,
+.modal-content.mobile-sheet .tab-content,
+.modal-content.mobile-sheet .clinical-template-assistant,
+.modal-content.mobile-sheet .anatomy-atlas-shell,
+.modal-content.mobile-sheet .symptom-checker,
+.modal-content.mobile-sheet .pubmed-feed {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-assistant *,
+.modal-content.mobile-sheet .anatomy-atlas-shell *,
+.modal-content.mobile-sheet .symptom-checker *,
+.modal-content.mobile-sheet .pubmed-feed * {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-header h3,
+.modal-content.mobile-sheet .anatomy-atlas-header h3,
+.modal-content.mobile-sheet .clinical-tool-header h3,
+.modal-content.mobile-sheet .clinical-tool-header h4 {
+  font-size: clamp(1.25rem, 7vw, 2rem) !important;
+  line-height: 1.08 !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-header p,
+.modal-content.mobile-sheet .anatomy-atlas-header p,
+.modal-content.mobile-sheet .clinical-tool-header p,
+.modal-content.mobile-sheet .clinical-template-disclaimer,
+.modal-content.mobile-sheet .clinical-template-empty,
+.modal-content.mobile-sheet .pubmed-abstract {
+  font-size: clamp(0.95rem, 4.4vw, 1.08rem) !important;
+  line-height: 1.55 !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0.65rem !important;
+  overflow: visible !important;
+  padding-bottom: 0.2rem !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-button,
+.modal-content.mobile-sheet .clinical-template-copy,
+.modal-content.mobile-sheet .anatomy-scene-tab,
+.modal-content.mobile-sheet .anatomy-atlas-action,
+.modal-content.mobile-sheet .symptom-chip,
+.modal-content.mobile-sheet .symptom-open-link {
+  min-height: 44px !important;
+  white-space: normal !important;
+  text-align: center !important;
+  font-size: clamp(0.86rem, 3.7vw, 0.98rem) !important;
+  line-height: 1.18 !important;
+  padding: 0.62rem 0.72rem !important;
+}
+
+.modal-content.mobile-sheet .clinical-template-output pre {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  font-size: 0.94rem !important;
+  line-height: 1.55 !important;
+}
+
+@media (max-width: 430px) {
+  .modal-content.mobile-sheet .clinical-template-assistant,
+  .modal-content.mobile-sheet .anatomy-atlas-shell,
+  .modal-content.mobile-sheet .symptom-checker,
+  .modal-content.mobile-sheet .pubmed-feed {
+    padding: 1rem !important;
+    border-radius: 24px !important;
+  }
+
+  .modal-content.mobile-sheet .clinical-template-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-content.mobile-sheet .modal-tabs .tab-button,
+  .modal-content.mobile-sheet .modal-tabs button {
+    min-height: 42px !important;
+    padding: 0.58rem 0.82rem !important;
+    font-size: 0.86rem !important;
+    line-height: 1.12 !important;
+  }
+}
+
+/* Ultra Premium V10: scenario pharmacology, questionnaire conclusions and atlas scene polish. */
+.pharma-scenario-rail {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding: 0.35rem 0 0.8rem;
+  margin: 0.25rem 0 0.85rem;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.pharma-scenario-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.pharma-scenario-chip {
+  flex: 0 0 auto;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(185, 120, 134, 0.24);
+  background: rgba(255, 250, 245, 0.88);
+  color: #2b2023;
+  padding: 0.58rem 0.82rem;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(92, 58, 64, 0.07);
+  scroll-snap-align: start;
+}
+
+.pharma-scenario-chip small {
+  min-width: 1.55rem;
+  min-height: 1.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(216, 184, 120, 0.22);
+  color: #5d3f27;
+  font-size: 0.75rem;
+}
+
+.pharma-scenario-chip.is-active {
+  background: linear-gradient(135deg, #efb59f, #d996a2);
+  border-color: rgba(185, 120, 134, 0.46);
+  box-shadow: 0 12px 26px rgba(185, 120, 134, 0.2);
+}
+
+.q-urgent-panel {
+  border-left: 4px solid #c76f7a !important;
+  background: linear-gradient(135deg, rgba(255, 245, 245, 0.96), rgba(255, 250, 245, 0.88)) !important;
+}
+
+.q-result .q-clinical-panel,
+.q-result .q-recommendation,
+.q-result .q-answers-summary {
+  color: #2b2023 !important;
+}
+
+.anatomy-scene-chip,
+.anatomy-action-button,
+.anatomy-sheet-link {
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(185, 120, 134, 0.24);
+  background: rgba(255, 250, 245, 0.9);
+  color: #2b2023;
+  font-weight: 800;
+  padding: 0.58rem 0.82rem;
+  box-shadow: 0 8px 18px rgba(92, 58, 64, 0.07);
+}
+
+.anatomy-scene-chip.is-active,
+.anatomy-action-button.is-primary,
+.anatomy-sheet-link {
+  background: linear-gradient(135deg, #efb59f, #d996a2);
+  border-color: rgba(185, 120, 134, 0.46);
+}
+
+.anatomy-scene-rail {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.anatomy-scene-rail::-webkit-scrollbar {
+  display: none;
+}
+
+html:not([data-theme='dark']) .pharma-scenario-chip,
+html:not([data-theme='dark']) .anatomy-scene-chip,
+html:not([data-theme='dark']) .anatomy-action-button,
+html:not([data-theme='dark']) .anatomy-sheet-link,
+html[data-theme='light'] .pharma-scenario-chip,
+html[data-theme='light'] .anatomy-scene-chip,
+html[data-theme='light'] .anatomy-action-button,
+html[data-theme='light'] .anatomy-sheet-link {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+@media (max-width: 768px) {
+  .pharma-scenario-rail {
+    margin-inline: -0.15rem;
+    padding-inline: 0.1rem 1rem;
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 1.4rem), transparent 100%);
+  }
+
+  .anatomy-atlas-layout {
+    gap: 0.9rem !important;
+  }
+
+  .anatomy-scene-rail {
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 1.4rem), transparent 100%);
+  }
+}
+
+/* Ultra Premium V10.1: slimmer iPhone bottom rail after visual QA. */
+@media (max-width: 768px) {
+  .mobile-bottom-bar {
+    left: max(0.32rem, env(safe-area-inset-left)) !important;
+    right: max(0.32rem, env(safe-area-inset-right)) !important;
+    bottom: calc(0.3rem + env(safe-area-inset-bottom)) !important;
+    min-height: 52px !important;
+    padding: 0.16rem !important;
+    border: 1px solid rgba(185, 120, 134, 0.22) !important;
+    border-radius: 24px !important;
+    background: rgba(255, 250, 245, 0.92) !important;
+    box-shadow: 0 14px 34px rgba(92, 58, 64, 0.14) !important;
+  }
+
+  .mobile-bottom-items {
+    max-width: none !important;
+    gap: 0 !important;
+  }
+
+  .mobile-bottom-item {
+    min-height: 44px !important;
+    border-radius: 18px !important;
+    padding: 0.12rem 0.03rem 0.32rem !important;
+    font-size: clamp(0.58rem, 2.62vw, 0.68rem) !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .mobile-bottom-item.is-active {
+    background: linear-gradient(135deg, rgba(255, 244, 236, 0.94), rgba(246, 231, 214, 0.78)) !important;
+  }
+
+  .mobile-bottom-label {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    transform: translateY(-0.5px) !important;
+  }
+
+  .mobile-bottom-active-line {
+    left: 32% !important;
+    right: 32% !important;
+    bottom: 0.24rem !important;
+  }
+
+  main,
+  .home-shell,
+  .catalog-section,
+  .bookmarks-panel,
+  .analytics-dashboard {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Ultra Premium V10.3: readable recovery screen for stale PWA chunks. */
+.premium-error-container {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background:
+    radial-gradient(circle at 18% 10%, rgba(232, 160, 140, 0.28), transparent 32%),
+    radial-gradient(circle at 88% 86%, rgba(216, 184, 120, 0.2), transparent 34%),
+    linear-gradient(135deg, #fff4ec 0%, #f8e4d5 48%, #f2d7c7 100%);
+  color: #2b2023;
+}
+
+.premium-error-card {
+  width: min(100%, 520px);
+  border: 1px solid rgba(185, 120, 134, 0.28);
+  border-radius: 32px;
+  background: linear-gradient(145deg, rgba(255, 250, 245, 0.98), rgba(246, 231, 214, 0.94));
+  box-shadow: 0 24px 70px rgba(92, 58, 64, 0.18);
+  padding: clamp(1.2rem, 5vw, 2rem);
+  text-align: center;
+}
+
+.premium-error-mark {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #efb59f, #d996a2);
+  color: #2b2023;
+  font-weight: 950;
+  box-shadow: 0 12px 28px rgba(185, 120, 134, 0.22);
+}
+
+.premium-error-card h1 {
+  margin: 0.35rem 0 0.65rem;
+  color: #2b2023;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 9vw, 3rem);
+  line-height: 0.98;
+}
+
+.premium-error-card p {
+  margin: 0 auto 1rem;
+  max-width: 34rem;
+  color: #4b3940;
+  font-size: clamp(0.98rem, 4.2vw, 1.08rem);
+  line-height: 1.55;
+}
+
+.premium-error-details {
+  margin-top: 1rem;
+  text-align: left;
+  color: #4b3940;
+}
+
+.premium-error-details summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.premium-error-details pre {
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid rgba(185, 120, 134, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 250, 245, 0.86);
+  color: #2b2023;
+  padding: 0.9rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.82rem;
+}
+
+/* Ultra Clinical V12: medical worktool stabilization layer. */
+:root {
+  --clinical-worktool-surface: rgba(255, 250, 245, 0.96);
+  --clinical-worktool-surface-strong: rgba(246, 231, 214, 0.96);
+  --clinical-worktool-text: #2b2023;
+  --clinical-worktool-muted: #514047;
+  --clinical-worktool-border: rgba(185, 120, 134, 0.28);
+  --clinical-worktool-shadow: 0 14px 36px rgba(92, 58, 64, 0.12);
+}
+
+[data-theme='dark'] {
+  --clinical-worktool-surface: rgba(47, 35, 38, 0.96);
+  --clinical-worktool-surface-strong: rgba(59, 43, 47, 0.96);
+  --clinical-worktool-text: #fff7ef;
+  --clinical-worktool-muted: #ead4c9;
+  --clinical-worktool-border: rgba(232, 160, 140, 0.28);
+  --clinical-worktool-shadow: 0 16px 42px rgba(0, 0, 0, 0.26);
+}
+
+.clinical-template-assistant,
+.anatomy-atlas-shell,
+.symptom-checker,
+.pubmed-feed,
+.clinical-tool-card,
+.clinical-tool-error,
+.pubmed-empty,
+.pubmed-error,
+.version-checker.glass {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(255, 255, 255, 0.5), transparent 34%),
+    linear-gradient(145deg, var(--clinical-worktool-surface), var(--clinical-worktool-surface-strong)) !important;
+  border: 1px solid var(--clinical-worktool-border) !important;
+  box-shadow: var(--clinical-worktool-shadow) !important;
+  color: var(--clinical-worktool-text) !important;
+  -webkit-text-fill-color: var(--clinical-worktool-text) !important;
+}
+
+.clinical-template-assistant p,
+.anatomy-atlas-shell p,
+.symptom-checker p,
+.pubmed-feed p,
+.clinical-tool-card p,
+.clinical-tool-error p,
+.pubmed-empty p,
+.pubmed-error p,
+.version-checker.glass p,
+.version-checker.glass span,
+.version-checker.glass small {
+  color: var(--clinical-worktool-muted) !important;
+  -webkit-text-fill-color: var(--clinical-worktool-muted) !important;
+}
+
+.clinical-template-assistant h3,
+.anatomy-atlas-shell h3,
+.symptom-checker h3,
+.pubmed-feed h3,
+.clinical-tool-card h3,
+.clinical-tool-error h3,
+.version-checker.glass h4,
+.version-checker.glass strong {
+  color: var(--clinical-worktool-text) !important;
+  -webkit-text-fill-color: var(--clinical-worktool-text) !important;
+}
+
+.modal-content.mobile-sheet .modal-quick-strip,
+.modal-content.mobile-sheet .modal-tabs,
+.questionnaire-modal.mobile-sheet .modal-tabs,
+.pharmacology-modal.mobile-sheet .pharma-tabs {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 245, 0.97), rgba(246, 231, 214, 0.94)) !important;
+  border-color: var(--clinical-worktool-border) !important;
+}
+
+[data-theme='dark'] .modal-content.mobile-sheet .modal-quick-strip,
+[data-theme='dark'] .modal-content.mobile-sheet .modal-tabs,
+[data-theme='dark'] .questionnaire-modal.mobile-sheet .modal-tabs,
+[data-theme='dark'] .pharmacology-modal.mobile-sheet .pharma-tabs {
+  background:
+    linear-gradient(135deg, rgba(47, 35, 38, 0.98), rgba(59, 43, 47, 0.94)) !important;
+}
+
+.modal-content.mobile-sheet .tab-btn,
+.modal-content.mobile-sheet .modal-tab,
+.questionnaire-modal.mobile-sheet .tab-btn,
+.pharmacology-modal.mobile-sheet .pharma-tab {
+  min-height: 44px !important;
+  color: var(--clinical-worktool-text) !important;
+  -webkit-text-fill-color: var(--clinical-worktool-text) !important;
+  background: rgba(255, 250, 245, 0.9) !important;
+  border: 1px solid var(--clinical-worktool-border) !important;
+}
+
+[data-theme='dark'] .modal-content.mobile-sheet .tab-btn,
+[data-theme='dark'] .modal-content.mobile-sheet .modal-tab,
+[data-theme='dark'] .questionnaire-modal.mobile-sheet .tab-btn,
+[data-theme='dark'] .pharmacology-modal.mobile-sheet .pharma-tab {
+  background: rgba(59, 43, 47, 0.92) !important;
+}
+
+.modal-content.mobile-sheet .tab-btn.active,
+.modal-content.mobile-sheet .modal-tab.active,
+.pharmacology-modal.mobile-sheet .pharma-tab.active {
+  background: linear-gradient(135deg, #efb59f, #d996a2) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+  border-color: rgba(185, 120, 134, 0.48) !important;
+}
+
+.clinical-template-button,
+.clinical-template-copy,
+.anatomy-scene-chip,
+.anatomy-action-button,
+.anatomy-sheet-link,
+.symptom-chip,
+.symptom-open-link {
+  min-height: 44px !important;
+  touch-action: manipulation !important;
+}
+
+.clinical-template-output,
+.clinical-template-empty,
+.clinical-template-loading,
+.anatomy-atlas-panel,
+.anatomy-hotspot-card,
+.pubmed-card,
+.pubmed-empty,
+.pubmed-error,
+.clinical-tool-card,
+.clinical-tool-error {
+  background: rgba(255, 250, 245, 0.78) !important;
+  border: 1px solid var(--clinical-worktool-border) !important;
+  color: var(--clinical-worktool-text) !important;
+}
+
+[data-theme='dark'] .clinical-template-output,
+[data-theme='dark'] .clinical-template-empty,
+[data-theme='dark'] .clinical-template-loading,
+[data-theme='dark'] .anatomy-atlas-panel,
+[data-theme='dark'] .anatomy-hotspot-card,
+[data-theme='dark'] .pubmed-card,
+[data-theme='dark'] .pubmed-empty,
+[data-theme='dark'] .pubmed-error,
+[data-theme='dark'] .clinical-tool-card,
+[data-theme='dark'] .clinical-tool-error {
+  background: rgba(59, 43, 47, 0.78) !important;
+}
+
+@media (max-width: 768px) {
+  .page-content,
+  main,
+  .home-shell,
+  .catalog-section,
+  .bookmarks-panel,
+  .analytics-dashboard,
+  .site-footer {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .modal-content.mobile-sheet .modal-body,
+  .questionnaire-modal.mobile-sheet .modal-body,
+  .pharmacology-modal.mobile-sheet .pharma-content {
+    scroll-padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .modal-content.mobile-sheet .tab-content {
+    padding-bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Ultra Clinical V12.1: force readable clinical sheets across html/body theme placement. */
+html:not([data-theme='dark']) .modal-content.mobile-sheet,
+html[data-theme='light'] .modal-content.mobile-sheet,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .modal-body,
+html[data-theme='light'] .modal-content.mobile-sheet .modal-body {
+  background: linear-gradient(180deg, #fff7f0 0%, #fffaf5 52%, #f8e8dc 100%) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-wide,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-summary-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .immediate-action-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .source-confidence-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-timeline-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .diagnostics-hero,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-list,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-item,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .patient-memo,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .memo-card,
+html[data-theme='light'] .modal-content.mobile-sheet .content-card,
+html[data-theme='light'] .modal-content.mobile-sheet .content-card-wide,
+html[data-theme='light'] .modal-content.mobile-sheet .structured-item,
+html[data-theme='light'] .modal-content.mobile-sheet .guideline-card,
+html[data-theme='light'] .modal-content.mobile-sheet .quick-card,
+html[data-theme='light'] .modal-content.mobile-sheet .quick-summary-card,
+html[data-theme='light'] .modal-content.mobile-sheet .immediate-action-card,
+html[data-theme='light'] .modal-content.mobile-sheet .source-confidence-card,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-timeline-card,
+html[data-theme='light'] .modal-content.mobile-sheet .diagnostics-hero,
+html[data-theme='light'] .modal-content.mobile-sheet .metric-list,
+html[data-theme='light'] .modal-content.mobile-sheet .metric-item,
+html[data-theme='light'] .modal-content.mobile-sheet .patient-memo,
+html[data-theme='light'] .modal-content.mobile-sheet .memo-card {
+  background: linear-gradient(135deg, rgba(255, 250, 245, 0.99), rgba(246, 231, 214, 0.92)) !important;
+  border: 1px solid rgba(185, 120, 134, 0.26) !important;
+  box-shadow: 0 14px 34px rgba(92, 58, 64, 0.1) !important;
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-card *,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card *,
+html[data-theme='light'] .modal-content.mobile-sheet .content-card *,
+html[data-theme='light'] .modal-content.mobile-sheet .structured-item *,
+html[data-theme='light'] .modal-content.mobile-sheet .guideline-card *,
+html[data-theme='light'] .modal-content.mobile-sheet .quick-card * {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet p,
+html:not([data-theme='dark']) .modal-content.mobile-sheet li,
+html:not([data-theme='dark']) .modal-content.mobile-sheet dd,
+html:not([data-theme='dark']) .modal-content.mobile-sheet small,
+html[data-theme='light'] .modal-content.mobile-sheet p,
+html[data-theme='light'] .modal-content.mobile-sheet li,
+html[data-theme='light'] .modal-content.mobile-sheet dd,
+html[data-theme='light'] .modal-content.mobile-sheet small {
+  color: #4f3d43 !important;
+  -webkit-text-fill-color: #4f3d43 !important;
+}
+
+html:not([data-theme='dark']) .modal-content.mobile-sheet h2,
+html:not([data-theme='dark']) .modal-content.mobile-sheet h3,
+html:not([data-theme='dark']) .modal-content.mobile-sheet h4,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item-title,
+html[data-theme='light'] .modal-content.mobile-sheet h2,
+html[data-theme='light'] .modal-content.mobile-sheet h3,
+html[data-theme='light'] .modal-content.mobile-sheet h4,
+html[data-theme='light'] .modal-content.mobile-sheet .structured-item-title {
+  color: #2b2023 !important;
+  -webkit-text-fill-color: #2b2023 !important;
+}
+
+/* Ultra Clinical V12.2: dark theme must override legacy body:not(...) light rules. */
+html[data-theme='dark'] .modal-content.mobile-sheet,
+html[data-theme='dark'] .modal-content.mobile-sheet .modal-body {
+  background: linear-gradient(180deg, #2b2023 0%, #35262b 52%, #422f35 100%) !important;
+  color: #fff7ef !important;
+  -webkit-text-fill-color: #fff7ef !important;
+}
+
+html[data-theme='dark'] .modal-content.mobile-sheet .content-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .content-card-wide,
+html[data-theme='dark'] .modal-content.mobile-sheet .structured-item,
+html[data-theme='dark'] .modal-content.mobile-sheet .guideline-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .quick-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .quick-summary-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .immediate-action-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .source-confidence-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .clinical-timeline-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .diagnostics-hero,
+html[data-theme='dark'] .modal-content.mobile-sheet .metric-list,
+html[data-theme='dark'] .modal-content.mobile-sheet .metric-item,
+html[data-theme='dark'] .modal-content.mobile-sheet .patient-memo,
+html[data-theme='dark'] .modal-content.mobile-sheet .memo-card {
+  background: linear-gradient(135deg, rgba(59, 43, 47, 0.98), rgba(47, 35, 38, 0.94)) !important;
+  border: 1px solid rgba(232, 160, 140, 0.28) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28) !important;
+  color: #fff7ef !important;
+  -webkit-text-fill-color: #fff7ef !important;
+}
+
+html[data-theme='dark'] .modal-content.mobile-sheet .content-card *,
+html[data-theme='dark'] .modal-content.mobile-sheet .structured-item *,
+html[data-theme='dark'] .modal-content.mobile-sheet .guideline-card *,
+html[data-theme='dark'] .modal-content.mobile-sheet .quick-card * {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+html[data-theme='dark'] .modal-content.mobile-sheet p,
+html[data-theme='dark'] .modal-content.mobile-sheet li,
+html[data-theme='dark'] .modal-content.mobile-sheet dd,
+html[data-theme='dark'] .modal-content.mobile-sheet small {
+  color: #ead4c9 !important;
+  -webkit-text-fill-color: #ead4c9 !important;
+}
+
+html[data-theme='dark'] .modal-content.mobile-sheet h2,
+html[data-theme='dark'] .modal-content.mobile-sheet h3,
+html[data-theme='dark'] .modal-content.mobile-sheet h4,
+html[data-theme='dark'] .modal-content.mobile-sheet .structured-item-title {
+  color: #fff7ef !important;
+  -webkit-text-fill-color: #fff7ef !important;
+}
+
+html[data-theme='dark'] .clinical-template-assistant,
+html[data-theme='dark'] .anatomy-atlas-shell,
+html[data-theme='dark'] .symptom-checker,
+html[data-theme='dark'] .pubmed-feed,
+html[data-theme='dark'] .version-checker.glass {
+  color: #fff7ef !important;
+  -webkit-text-fill-color: #fff7ef !important;
+}
+
+/* Ultra Clinical V12.3: expose solid background-color for automated and Safari contrast computation. */
+html:not([data-theme='dark']) .modal-content.mobile-sheet,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .modal-body,
+html[data-theme='light'] .modal-content.mobile-sheet,
+html[data-theme='light'] .modal-content.mobile-sheet .modal-body,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .content-card-wide,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .structured-item,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .guideline-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .quick-summary-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .immediate-action-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .source-confidence-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .clinical-timeline-card,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .diagnostics-hero,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-list,
+html:not([data-theme='dark']) .modal-content.mobile-sheet .metric-item,
+html[data-theme='light'] .modal-content.mobile-sheet .content-card,
+html[data-theme='light'] .modal-content.mobile-sheet .content-card-wide,
+html[data-theme='light'] .modal-content.mobile-sheet .structured-item,
+html[data-theme='light'] .modal-content.mobile-sheet .guideline-card,
+html[data-theme='light'] .modal-content.mobile-sheet .quick-card,
+html[data-theme='light'] .modal-content.mobile-sheet .quick-summary-card,
+html[data-theme='light'] .modal-content.mobile-sheet .immediate-action-card,
+html[data-theme='light'] .modal-content.mobile-sheet .source-confidence-card,
+html[data-theme='light'] .modal-content.mobile-sheet .clinical-timeline-card,
+html[data-theme='light'] .modal-content.mobile-sheet .diagnostics-hero,
+html[data-theme='light'] .modal-content.mobile-sheet .metric-list,
+html[data-theme='light'] .modal-content.mobile-sheet .metric-item,
+html:not([data-theme='dark']) .clinical-template-assistant,
+html:not([data-theme='dark']) .anatomy-atlas-shell,
+html:not([data-theme='dark']) .symptom-checker,
+html:not([data-theme='dark']) .pubmed-feed,
+html:not([data-theme='dark']) .version-checker.glass,
+html[data-theme='light'] .clinical-template-assistant,
+html[data-theme='light'] .anatomy-atlas-shell,
+html[data-theme='light'] .symptom-checker,
+html[data-theme='light'] .pubmed-feed,
+html[data-theme='light'] .version-checker.glass {
+  background-color: #fffaf5 !important;
+}
+
+html[data-theme='dark'] .modal-content.mobile-sheet,
+html[data-theme='dark'] .modal-content.mobile-sheet .modal-body,
+html[data-theme='dark'] .modal-content.mobile-sheet .content-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .content-card-wide,
+html[data-theme='dark'] .modal-content.mobile-sheet .structured-item,
+html[data-theme='dark'] .modal-content.mobile-sheet .guideline-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .quick-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .quick-summary-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .immediate-action-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .source-confidence-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .clinical-timeline-card,
+html[data-theme='dark'] .modal-content.mobile-sheet .diagnostics-hero,
+html[data-theme='dark'] .modal-content.mobile-sheet .metric-list,
+html[data-theme='dark'] .modal-content.mobile-sheet .metric-item,
+html[data-theme='dark'] .clinical-template-assistant,
+html[data-theme='dark'] .anatomy-atlas-shell,
+html[data-theme='dark'] .symptom-checker,
+html[data-theme='dark'] .pubmed-feed,
+html[data-theme='dark'] .version-checker.glass {
+  background-color: #3b2b2f !important;
+}

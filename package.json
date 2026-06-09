@@ -1,0 +1,103 @@
+{
+  "name": "gyn-clinical",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/react-window": "^1.8.8",
+    "@types/three": "^0.184.1",
+    "bootstrap": "^5.3.8",
+    "framer-motion": "^12.38.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-helmet-async": "^3.0.0",
+    "react-icons": "^5.6.0",
+    "react-window": "^2.2.7",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.59.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "canvas": "^3.2.3",
+    "eslint": "^10.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "jsdom": "^26.0.0",
+    "playwright": "^1.59.1",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^6.3.5",
+    "vite-plugin-pwa": "^1.2.0",
+    "vitest": "^3.0.0",
+    "wrangler": "^4.84.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
+    "audit:content": "node scripts/content-quality-audit.mjs",
+    "audit:icd": "node scripts/audit-icd.mjs",
+    "audit:mojibake:source": "node scripts/source-mojibake-audit.mjs",
+    "audit:iphone": "node scripts/iphone-audit.mjs",
+    "audit:pharma:iphone": "node scripts/pharma-iphone-audit.mjs",
+    "audit:iphone:overlap": "node scripts/iphone-overlap-audit.mjs",
+    "audit:pastel": "node scripts/pastel-consistency-audit.mjs",
+    "audit:a11y": "node scripts/accessibility-smoke.mjs",
+    "verify:premium": "node scripts/run-premium-verify.mjs",
+    "verify:premium:served": "node scripts/run-premium-verify.mjs",
+    "verify:release": "npm run verify:premium",
+    "audit:visual:iphone": "node scripts/iphone-visual-audit.mjs",
+    "audit:visible:mojibake": "node scripts/visible-mojibake-audit.mjs",
+    "audit:readability": "node scripts/readability-audit.mjs",
+    "audit:questionnaires:iphone": "node scripts/questionnaires-iphone-audit.mjs",
+    "audit:atlas:iphone": "node scripts/atlas-iphone-audit.mjs",
+    "audit:pwa:freshness": "node scripts/pwa-freshness-audit.mjs",
+    "audit:security:static": "node scripts/security-static-audit.mjs",
+    "audit:iphone:clinical-tools": "node scripts/clinical-tools-iphone-audit.mjs",
+    "audit:cards:open": "node scripts/cards-open-audit.mjs",
+    "audit:workflow:iphone": "node scripts/workflow-iphone-audit.mjs",
+    "audit:source:utf8-ui": "node scripts/source-utf8-ui-audit.mjs",
+    "audit:bundle:budget": "node scripts/bundle-budget-audit.mjs",
+    "audit:landscape:iphone": "node scripts/landscape-iphone-audit.mjs",
+    "audit:search:index": "node scripts/search-index-audit.mjs",
+    "audit:content:source-coverage": "node scripts/content-source-coverage-audit.mjs",
+    "audit:clinical-source-dates": "node scripts/clinical-source-dates-audit.mjs",
+    "audit:touch-targets": "node scripts/touch-targets-audit.mjs",
+    "audit:css-debt": "node scripts/css-debt-audit.mjs",
+    "audit:manual:visual-checklist": "node scripts/manual-visual-checklist.mjs",
+    "audit:production:freshness": "node scripts/production-freshness-audit.mjs",
+    "deploy:production": "node scripts/deploy-production-guard.mjs"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,319 @@
+/*
+ * GYN Clinical V1 premium finish layer.
+ * This file is intentionally short: it stabilizes the final iPhone workbench
+ * surfaces without growing the legacy priority cascade.
+ */
+
+:root {
+  --v1-surface: #fffaf4;
+  --v1-surface-strong: #fff4ec;
+  --v1-surface-muted: #f8eadf;
+  --v1-text: #2b2023;
+  --v1-text-muted: #665059;
+  --v1-border: rgba(150, 92, 82, 0.22);
+  --v1-accent: #c57f73;
+  --v1-accent-strong: #9f5c65;
+  --v1-shadow: 0 18px 42px rgba(77, 43, 39, 0.13);
+  --v1-safe-bottom: calc(72px + env(safe-area-inset-bottom));
+}
+
+[data-theme='dark'] {
+  --v1-surface: #2a1d21;
+  --v1-surface-strong: #34242a;
+  --v1-surface-muted: #402c32;
+  --v1-text: #fff6ee;
+  --v1-text-muted: #dbc5bd;
+  --v1-border: rgba(255, 221, 205, 0.18);
+  --v1-accent: #e7a08e;
+  --v1-accent-strong: #f2c0ad;
+  --v1-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+}
+
+html,
+body,
+#root {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.app-main,
+.home-shell,
+.catalog-shell {
+  scroll-padding-bottom: var(--v1-safe-bottom);
+}
+
+.home-shell,
+.catalog-shell,
+.catalog-controls,
+.version-checker,
+.version-checker.glass,
+.clinical-template-assistant,
+.anatomy-atlas-shell,
+.symptom-checker,
+.pubmed-feed,
+.premium-error-container,
+.pharma-empty-state,
+.q-result,
+.questionnaire-results,
+.pharmacology-modal .medication-card,
+.pharmacology-modal .regimen-card {
+  background: linear-gradient(145deg, var(--v1-surface), var(--v1-surface-strong));
+  border: 1px solid var(--v1-border);
+  color: var(--v1-text);
+  box-shadow: var(--v1-shadow);
+}
+
+.version-checker *,
+.clinical-template-assistant *,
+.anatomy-atlas-shell *,
+.symptom-checker *,
+.pubmed-feed *,
+.premium-error-container *,
+.pharma-empty-state *,
+.q-result *,
+.questionnaire-results * {
+  color: inherit;
+}
+
+.version-kicker,
+.catalog-status-eyebrow,
+.clinical-tool-kicker,
+.workbench-command-badge,
+.category-chip-count,
+.disease-card-meta,
+.disease-card-description,
+.structured-item-note {
+  color: var(--v1-text-muted);
+}
+
+.catalog-header,
+.disease-card,
+.content-card,
+.content-card-wide,
+.structured-item,
+.quick-card,
+.guideline-card {
+  background: linear-gradient(145deg, var(--v1-surface), rgba(255, 246, 239, 0.92));
+  border-color: var(--v1-border);
+  color: var(--v1-text);
+}
+
+[data-theme='dark'] .catalog-header,
+[data-theme='dark'] .disease-card,
+[data-theme='dark'] .content-card,
+[data-theme='dark'] .content-card-wide,
+[data-theme='dark'] .structured-item,
+[data-theme='dark'] .quick-card,
+[data-theme='dark'] .guideline-card {
+  background: linear-gradient(145deg, var(--v1-surface), var(--v1-surface-strong));
+}
+
+.content-card h3,
+.content-card-wide h3,
+.structured-item-title,
+.disease-card-title,
+.catalog-header h1,
+.catalog-header h2 {
+  color: var(--v1-text);
+}
+
+.search-input,
+.catalog-search-input,
+.command-search-input {
+  min-height: 48px;
+  background: rgba(255, 250, 244, 0.92);
+  border: 1px solid var(--v1-border);
+  color: var(--v1-text);
+}
+
+[data-theme='dark'] .search-input,
+[data-theme='dark'] .catalog-search-input,
+[data-theme='dark'] .command-search-input {
+  background: rgba(52, 36, 42, 0.92);
+}
+
+.category-filter,
+.modal-tabs,
+.quick-suggestion-rail,
+.search-suggestions {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-padding-inline: 1rem;
+}
+
+.category-filter::-webkit-scrollbar,
+.modal-tabs::-webkit-scrollbar,
+.quick-suggestion-rail::-webkit-scrollbar,
+.search-suggestions::-webkit-scrollbar {
+  display: none;
+}
+
+.category-chip,
+.search-suggestion-chip,
+.modal-tabs button,
+.modal-tab,
+.tab-btn,
+.premium-button,
+.mobile-bottom-item,
+.modal-close,
+.modal-back,
+.favorite-button {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+.category-chip,
+.search-suggestion-chip,
+.modal-tabs button,
+.modal-tab,
+.tab-btn {
+  color: var(--v1-text);
+  border-color: var(--v1-border);
+}
+
+.category-chip.active,
+.category-chip[aria-pressed='true'],
+.modal-tabs button[aria-selected='true'],
+.modal-tab.active,
+.tab-btn.active {
+  background: linear-gradient(135deg, #ffd4c4, #e8a0a3);
+  color: #2b2023;
+  border-color: rgba(151, 82, 92, 0.32);
+}
+
+.modal-overlay {
+  z-index: 1200;
+}
+
+.modal-content.mobile-sheet,
+.questionnaire-modal.mobile-sheet,
+.pharmacology-modal.mobile-sheet {
+  max-height: 100dvh;
+  color: var(--v1-text);
+}
+
+.modal-body,
+.questionnaire-modal .q-body,
+.pharmacology-modal .pharma-body {
+  scroll-padding-bottom: calc(var(--v1-safe-bottom) + 24px);
+  padding-bottom: calc(var(--v1-safe-bottom) + 24px);
+}
+
+.modal-content.mobile-sheet .modal-tabs,
+.questionnaire-modal.mobile-sheet .modal-tabs {
+  background: color-mix(in srgb, var(--v1-surface) 88%, transparent);
+  border-bottom: 1px solid var(--v1-border);
+}
+
+.mobile-bottom-bar {
+  background: color-mix(in srgb, var(--v1-surface) 88%, transparent);
+  border: 1px solid var(--v1-border);
+  box-shadow: 0 -12px 34px rgba(56, 32, 33, 0.16);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.mobile-bottom-item {
+  color: var(--v1-text);
+}
+
+.mobile-bottom-item.active,
+.mobile-bottom-item[aria-current='page'] {
+  background: rgba(214, 158, 112, 0.18);
+  color: var(--v1-text);
+}
+
+.mobile-bottom-item.active::after,
+.mobile-bottom-item[aria-current='page']::after {
+  background: #d6a35f;
+}
+
+.clinical-template-assistant button,
+.symptom-checker button,
+.pubmed-feed button,
+.anatomy-atlas-shell button,
+.version-checker button {
+  min-height: 44px;
+}
+
+:is(.clinical-panel, .clinical-empty-state, .clinical-error-state) {
+  display: grid;
+  gap: 0.75rem;
+  background: linear-gradient(145deg, var(--v1-surface), var(--v1-surface-strong));
+  border: 1px solid var(--v1-border);
+  border-radius: 22px;
+  color: var(--v1-text);
+  box-shadow: var(--v1-shadow);
+  padding: 1rem;
+}
+
+:is(.clinical-panel, .clinical-empty-state, .clinical-error-state) h3 {
+  margin: 0;
+  color: var(--v1-text);
+}
+
+:is(.clinical-panel-eyebrow, .clinical-badge, .source-badge, .risk-flag) {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 32px;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--v1-border);
+  color: var(--v1-text);
+  font-size: 0.76rem;
+  font-weight: 850;
+  padding: 0.25rem 0.65rem;
+}
+
+:is(.clinical-panel-eyebrow, .source-badge) {
+  color: var(--v1-accent-strong);
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  :root {
+    --v1-safe-bottom: calc(28px + env(safe-area-inset-bottom));
+  }
+
+  .app-main {
+    padding-left: calc(74px + env(safe-area-inset-left));
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-bottom-bar {
+    inset: max(8px, env(safe-area-inset-top)) auto max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+    width: 64px;
+    min-height: auto;
+    height: auto;
+    flex-direction: column;
+    padding: 8px 6px;
+    border-radius: 24px;
+  }
+
+  .mobile-bottom-item {
+    width: 52px;
+    min-width: 52px;
+    padding: 8px 4px;
+    writing-mode: horizontal-tb;
+    font-size: 0.72rem;
+  }
+
+  .catalog-shell {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.72fr) minmax(280px, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .catalog-header,
+  .catalog-controls {
+    position: sticky;
+    top: max(8px, env(safe-area-inset-top));
+  }
+
+  .modal-content.mobile-sheet,
+  .questionnaire-modal.mobile-sheet,
+  .pharmacology-modal.mobile-sheet {
+    width: min(920px, calc(100vw - 96px));
+    margin-left: calc(74px + env(safe-area-inset-left));
+  }
+}
