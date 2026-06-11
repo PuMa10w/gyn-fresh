@@ -439,7 +439,7 @@ function App() {
           </motion.section>
 
           <footer className="site-footer">
-            <p>© Puma10w • Премиальный медицинский справочник</p>
+            <p>© Puma10w • GYN</p>
           </footer>
         </main>
 
